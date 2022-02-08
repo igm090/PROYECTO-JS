@@ -1,0 +1,104 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    background-color:#ffe1e2;
+}
+
+.navbar {
+    background-color: white;
+    padding: 1% 0;
+    font-size: 1.2em;
+}
+
+.navbar-brand{
+    min-height: 55px;
+    padding: 0 15px 5px;
+}
+
+.logo{
+    height: 60px;
+}
+
+.navbar-default .navbar-nav li a{
+   color: black; 
+}
+
+.navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:active{
+    color: #e51b23;
+}
+
+#home {
+    background: url(../media/background-clapper.jpg) no-repeat center center fixed;
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+
+.landing-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+}
+
+.landing-text h1{
+    font-size: 500%;
+    font-weight: 700;
+    color: #e51b23;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.padding{
+    padding: 80px 0;
+}
+
+.padding img {
+    width: 100%;
+}
+
+#fixed {
+    background: url(../media/background-fixed2.jpg) no-repeat center center fixed;
+    display: table;
+    height: 60%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+
+footer{
+    width: 100%;
+    background-color: white;
+    padding: 5% 5% 10% 5%;
+    color: #e51b23;
+}
+
+.fa {
+    padding: 15px;
+    font-size: 25px;
+    color: #e51b23;
+}
+
+.fa:hover{
+    text-decoration: none;
+    color: #e51b23;
+}
+
+.icon{
+    max-width: 200px;
+}
+
+@media (min-width: 768px) {
+    .landing-text h1{
+        font-size: 300%;
+    }
+    .fa{
+        font-size: 20px;
+        padding: 10px;
+    }
+    .icon{
+        padding-top: 5%;
+        width: 100%;
+    }
+}
