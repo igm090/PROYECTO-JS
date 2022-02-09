@@ -4,8 +4,7 @@ import { resetMasoquista } from "../funciones_aux.js";
 
 var masoquista = document.getElementById("masoquista");
 
-export const cargarPrincipal = () => {
+export const cargarContacto = () => {
     resetMasoquista();
-    masoquista.innerHTML += plantillasPrincipal.pintarBody();
-    masoquista.innerHTML += plantillasPrincipal.pintarFooter();
+    masoquista.innerHTML += plantillasPrincipal.pintarContacto();
 }
