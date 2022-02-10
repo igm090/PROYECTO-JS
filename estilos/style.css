@@ -5,7 +5,7 @@ html, body, #masoquista{
 }
 
 #masoquista{
-    margin-top: 80px;
+    margin-top: 76px;
 }
 
 .navbar {
@@ -107,7 +107,11 @@ footer{
     }
 }
 
-/*Perfil pelicula*/
+.hidden{
+    display: none;
+}
+
+/*Perfil pelicula****************************************************************************/
 .emp-profile{
     padding: 3%;
     margin-top: 3%;

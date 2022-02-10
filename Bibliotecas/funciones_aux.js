@@ -1,18 +1,18 @@
 "use strict";
 
 var d = document;
-
+/**
+ * Vacía la página (menos header), para luego poder pintar dentro.
+ */
 export const resetMasoquista = () => {
     let masoquista = document.getElementById("masoquista");
     masoquista.innerHTML = "";
 }
 
-const emailValido = (string) => {
-    let res = new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
-    return res.test(string);
-}
-
-export const errorFormulario = (mensaje) => {
+/**
+ * Comprobación de formulario, el cual anexa el mensaje de error que llega.
+ */
+ export const errorFormulario = (mensaje) => {
     let error;
     if (!d.getElementById('errorForm')) {
         error = d.createElement('p');
@@ -23,6 +23,9 @@ export const errorFormulario = (mensaje) => {
     d.getElementById('errorForm').innerHTML = mensaje;
 }
 
+/**
+ * Dependiendo del tipo de error escribe el mensaje correspondiente.
+ */
 export const recogerErrores = (email, pass) => {
     let mensajeError = "";
     if (email == '' || pass == ''){
@@ -36,6 +39,16 @@ export const recogerErrores = (email, pass) => {
     }
     return mensajeError;
 }
+
+/**
+ * Recoge uno de los tipos de error del formulario.
+ */
+const emailValido = (string) => {
+    let res = new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
+    return res.test(string);
+}
+
+
 
 export const getNombreUser = () => {
     var nombre = document.getElementById("nomRegistro").value;
