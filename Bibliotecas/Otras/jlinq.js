@@ -123,7 +123,7 @@ var jl;
                         
                     },
                     
-                    //determines if the arguments provided meet the
+                    //determines if the args provided meet the
                     //requirements to be a repeated command
                     canRepeatCommand:function(args) {
                         return self.instance.lastCommand != null &&
@@ -213,24 +213,24 @@ var jl;
                     },
                     
                     //repeats the previous command with new
-                    //arguments
-                    repeat:function(arguments) {
+                    //args
+                    repeat:function(args) {
                     
                         //check if there is anything to repeat
-                        if (!self.instance.lastCommand || arguments == null) { return; }
+                        if (!self.instance.lastCommand || args == null) { return; }
                         
-                        //get the array of arguments to work with
-                        arguments = framework.util.toArray(arguments);
+                        //get the array of args to work with
+                        args = framework.util.toArray(args);
                             
                         //check if there is a field name has changed, and
-                        //if so, update the arguments to match
-                        if (self.canRepeatCommand(arguments)) {
-                            self.instance.lastField = arguments[0];
-                            arguments = framework.util.select(arguments, null, 1, null);
+                        //if so, update the args to match
+                        if (self.canRepeatCommand(args)) {
+                            self.instance.lastField = args[0];
+                            args = framework.util.select(args, null, 1, null);
                         }
                         
                         //invoke the command now
-                        self.queue(self.instance.lastCommand, arguments);
+                        self.queue(self.instance.lastCommand, args);
                     },
                     
                     //saves a command to evaluate later
@@ -251,7 +251,7 @@ var jl;
                         //be the field name argument
                         if (detail.args.length > command.method.length) {
                         
-                            //if so, grab the name and update the arguments
+                            //if so, grab the name and update the args
                             detail.field = detail.args[0];
                             detail.args = framework.util.remaining(detail.args, 1);
                             self.instance.lastField = detail.field;
@@ -289,7 +289,7 @@ var jl;
                         
                         //the default action to perform
                         var action = function() {
-                            self.queue(command, arguments);
+                            self.queue(command, args);
                             return self.instance.query;
                         };
                         
@@ -300,31 +300,31 @@ var jl;
                         var name = framework.util.operatorName(command.name);
                         self.instance.query["or"+name] = function() {
                             self.startNewCommandSet();
-                            return action.apply(null, arguments);
+                            return action.apply(null, args);
                         };
                         
                         //orNotCommand
                         self.instance.query["orNot"+name] = function() {
                             self.startNewCommandSet();
                             self.setNot();
-                            return action.apply(null, arguments);
+                            return action.apply(null, args);
                         };
                         
                         //andCommand
                         self.instance.query["and"+name] = function() {
-                            return action.apply(null, arguments);
+                            return action.apply(null, args);
                         };
                         
                         //andNotCommand
                         self.instance.query["andNot"+name] = function() {
                             self.setNot();
-                            return action.apply(null, arguments);
+                            return action.apply(null, args);
                         };
                         
                         //notCommand
                         self.instance.query["not"+name] = function() {
                             self.setNot();
-                            return action.apply(null, arguments);
+                            return action.apply(null, args);
                         };
                         
                     }
@@ -344,7 +344,7 @@ var jl;
                             state.when = function(value, types) { return framework.util.when(value, types, state); };
                             
                             //perform the work
-                            return command.method.apply(state, arguments);
+                            return command.method.apply(state, args);
                         };
                     }
                     
@@ -359,7 +359,7 @@ var jl;
                             state.when = function(value, types) { return framework.util.when(value, types, state); };
                         
                             //perform the work
-                            command.method.apply(state, arguments);
+                            command.method.apply(state, args);
                             return self.instance.query;
                         };
                     }
@@ -369,27 +369,27 @@ var jl;
                 //causes the next command to be an 'or'
                 self.instance.query.or = function() {
                     self.startNewCommandSet();
-                    self.repeat(arguments);
+                    self.repeat(args);
                     return self.instance.query;
                 };
                 
                 //causes the next command to be an 'and' (which is default)
                 self.instance.query.and = function() { 
-                    self.repeat(arguments); 
+                    self.repeat(args); 
                     return self.instance.query;
                 };
                 
                 //causes the next command to be a 'not'
                 self.instance.query.not = function() { 
                     self.setNot();
-                    self.repeat(arguments); 
+                    self.repeat(args); 
                     return self.instance.query;
                 };
                 
                 //causes the next command to be a 'not'
                 self.instance.query.andNot = function() { 
                     self.setNot();
-                    self.repeat(arguments); 
+                    self.repeat(args); 
                     return self.instance.query;
                 };
                 
@@ -397,7 +397,7 @@ var jl;
                 self.instance.query.orNot = function() { 
                     self.startNewCommandSet();
                     self.setNot();
-                    self.repeat(arguments); 
+                    self.repeat(args); 
                     return self.instance.query;
                 };
                 
@@ -462,7 +462,7 @@ var jl;
                 //start by getting the path
                 var path = args[0];
                 
-                //find the method and extract the arguments
+                //find the method and extract the args
                 var method = framework.util.findValue(obj, path);
                 args = framework.util.select(args, null, 1, null);
                 
@@ -910,7 +910,7 @@ var jl;
         //joins two sets of records by the key information provided
         { name:"sort", type:framework.command.action,
             method:function() {
-                var args = jLinq.util.toArray(arguments);
+                var args = jLinq.util.toArray(args);
                 this.records = jLinq.util.reorder(this.records, args, this.ignoreCase);
             }},
     
@@ -1216,7 +1216,7 @@ var jl;
                     if (compare.apply(state, [record]) === true) { matches.push(record); }
                 });
                 
-                //create a new query with matching arguments
+                //create a new query with matching args
                 var query = jLinq.from(matches);
                 if (!this.ignoreCase) { query.useCase(); }
                 return query;
@@ -1241,7 +1241,7 @@ var jl;
         type:framework.type,
         
         //allows command to be added to the library
-        extend:function() { framework.library.extend.apply(null, arguments); },
+        extend:function() { framework.library.extend.apply(null, args); },
         
         //core function to start and entirely new query
         query:function(collection, params) { 

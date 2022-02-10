@@ -7,6 +7,7 @@
 import * as api from "/Bibliotecas/Promesas/omdbAPI.js";
 import * as tsv from "/Bibliotecas/Otras/tvsToJson.js";
 
+const d = document;
 let film = await api.getFilmById('tt0115736');
 console.log(film);
 
@@ -15,8 +16,8 @@ console.log(film2);
 
 console.log(api.getMediaPaprika(film));
 
-function getFile() {
-    console.log("a");
-  //let file = input.files[0];
-  //tsv.tsvJSON(file);
-}
+d.getElementById('send').addEventListener('click', () => {
+  console.log("a");
+  let file = d.getElementById('archivo').files[0];
+  tsv.tsvJSON(file);
+},false);

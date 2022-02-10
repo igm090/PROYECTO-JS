@@ -1,4 +1,4 @@
-import * as jlinq from "/Bibliotecas/jLINQ/jlinq.js";
+import * as jlinq from "/Bibliotecas/Otras/jlinq.js";
 /**
  *  ejemplo json - guardianes de la galaxia 2 http://www.omdbapi.com/?i=tt3896198&apikey=1d78ab91
  * 
