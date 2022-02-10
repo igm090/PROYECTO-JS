@@ -7,7 +7,11 @@ export const pintarPerfil = () => {
         <div class="card">
         <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                <div class="file btn btn-lg btn-primary">
+                    Change Photo
+                <input type="file" name="file"/>
+        </div>
             <div class="mt-3">
                 <h4>John Doe</h4>
                 <p class="text-secondary mb-1">Full Stack Developer</p>
