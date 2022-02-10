@@ -18,7 +18,8 @@ principal.cargarPrincipal();
 d.getElementById("inicio").addEventListener("click", principal.cargarPrincipal);
 
 //Tops
-d.getElementById("topGenerico").addEventListener("click", principal.cargarTops);
+//d.getElementById("topGenerico").addEventListener("click", principal.cargarTops);
+d.getElementById("topGenerico").addEventListener("click", principal.cargarPeliculasLanding);
 
 //Perfil
 d.getElementById("perfil").addEventListener("click", cargarPerfil);
@@ -34,11 +35,6 @@ d.getElementById("registro").addEventListener("click", acceso.cargarRegistro);
 
 //Cerrar Sesión
 d.getElementById("cerrarSesion").addEventListener("click", firebase.cerrarSesion);
-
-
-/********** Contenido página **********/
-//Botón landing registrarse
-d.getElementById("btnLanding").addEventListener("click", acceso.cargarRegistro);
 
 
 }
