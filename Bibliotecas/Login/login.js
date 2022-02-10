@@ -1,32 +1,44 @@
 "use strict";
 import * as plantillasLogin from "../Plantillas/plantillasLogin.js";
+import { validarFormulario } from "../Promesas/firebase.js"
 import { resetMasoquista } from "../funciones_aux.js";
 
 //Variables.
-var masoquista = document.getElementById("masoquista");
-var miniRegistro;
-var miniLogin;
+var d = document;
+var masoquista = d.getElementById("masoquista");
+
 
 export const cargarLogin = () => {
     resetMasoquista();
     masoquista.innerHTML += plantillasLogin.pintarLogin();
-    miniRegistro = document.getElementById("miniRegistro");
-    eventRegistro();
+    //falta botón login
+
+    let miniRegistro = d.getElementById("miniRegistro");
+    eventMiniRegistro(miniRegistro);
 }
 
 export const cargarRegistro = () => {
     resetMasoquista();
     masoquista.innerHTML += plantillasLogin.pintarRegistro();
-    miniLogin = document.getElementById("miniLogin");
-    eventLogin();
+
+    let btnRegistro = d.getElementById("btnRegistrarse");
+    eventRegistrarse(btnRegistro);
+
+    let miniLogin = d.getElementById("miniLogin");
+    eventMiniLogin(miniLogin);
+}
+
+//Event Listeners Registrarse e Iniciar sesión.
+const eventRegistrarse = (reg) => {
+    reg.addEventListener("click", validarFormulario);
 }
 
 
 //Event Listeners botones pequeños.
-const eventLogin = () => {
-    miniLogin.addEventListener("click", cargarLogin);
+const eventMiniLogin = (log) => {
+    log.addEventListener("click", cargarLogin);
 }
 
-const eventRegistro = () => {
-    miniRegistro.addEventListener("click", cargarRegistro);
+const eventMiniRegistro = (reg) => {
+    reg.addEventListener("click", cargarRegistro);
 }
