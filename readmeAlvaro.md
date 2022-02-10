@@ -1,1 +1,0 @@
-Estoy más perdido que un daltónico jugando al Uno.
