@@ -15,6 +15,8 @@ export const getFilmById = async (id) => {
     let dir = `${url}i=${id}${apiKey}`;
     let film = await fetch(dir);
     let a = await film.json();
+    film.mediaPaprika = getMediaPaprika(film);
+    console.log("Se ha devuelto una película de la API.");
     return a;
 }
 
@@ -24,9 +26,9 @@ export const getFilmsBusqueda = async (titulo, anyo) => {
     let dir = `${url}s=${titulo}`;
     if (anyo.trim() != '') dir += `y=${anyo.trim()}`;
     dir += `${apiKey}`;
-
     let film = await fetch(dir);
     let a = await film.json();
+    console.log("Se ha realizado una búsqueda en la API");
     return a;
 }
 
@@ -79,6 +81,11 @@ export const sortAnyoDesc = (lista) => {
     return lista.sort((a, b) => (a.Year < b.Year) ? 1 : -1);
 }
 //década (amplación)
+export const filterDecada = (lista) => {
+    let all = [];
+    lista.forEach(film => {if (film.Year < 1999 && film.Year > 1990) all.push(film);});
+    return all;
+}
 
 //alfabético
 export const sortTituloAsc = (lista) => {
