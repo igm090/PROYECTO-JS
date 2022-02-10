@@ -41,7 +41,6 @@ export const getMicroPreview = async (id) => {
 //getPreview (poster, nombre, año, genero, media)
 export const getPreview = async (id) => {
     let film = await getFilmById(id);
-    let mediaPaprika = getMediaPaprika(film);
     return new Array [film.imdbID, film.Poster, film.Title, film.Year, film.Genre, mediaPaprika];
 }
 
@@ -63,7 +62,6 @@ export const getFullListaJSON = async (lista) => {
     let all = [];
     for (const e of lista) {
         let film = await getFilmById(e);
-        film.mediaPaprika = getMediaPaprika(film);
         all.push(film);   
     }
     return all;
