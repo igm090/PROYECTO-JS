@@ -1,6 +1,6 @@
 
 
-export const cargarPerfilPelicula = () => {
+export const perfilPelicula = () => {
     return `
 <div class="container emp-profile">
             <form method="post">
@@ -153,20 +153,17 @@ export const cargarPerfilPelicula = () => {
 
     export const cargarPeliculasLanding = () => {
         return `   
-        <div class="movie-card">
+    <div class="movie-card">
+
 		<div class="movie-header manOfSteel">
-			<div class="header-icon-container">
-				<a href="#">
-					<i class="material-icons header-icon"></i>
-				</a>
-			</div>
 		</div><!--movie-header-->
+
 		<div class="movie-content">
 			<div class="movie-content-header">
 				<a href="#">
 					<h3 class="movie-title">Man of Steel</h3>
 				</a>
-				<div class="imax-logo"></div>
+				<div class="paprika-logo"></div>
 			</div>
 			<div class="movie-info">
 				<div class="info-section">
@@ -187,7 +184,8 @@ export const cargarPerfilPelicula = () => {
 				</div><!--seat-->
 			</div>
 		</div><!--movie-content-->
-	</div><!--movie-card-->     
+	</div><!--movie-card-->
+       
         
         `
     };

@@ -7,14 +7,12 @@ import { resetMasoquista } from "../funciones_aux.js";
 //Variables
 var d = document;
 var masoquista = d.getElementById("masoquista");
-var arrayPeliculas = [];
 
 export const cargarPrincipal = async () => {
     resetMasoquista();
     masoquista.innerHTML += principal.pintarBody();
     masoquista.innerHTML += principal.pintarFooter();
     eventBtnLanding();
-    eventCargarPerfilPelicula();
 }
 
 export const cargarContacto = () => {
@@ -29,13 +27,15 @@ export const cargarContacto = () => {
 }*/
 export const cargarPeliculasLanding = () => {
     resetMasoquista();
-    masoquista.innerHTML += peliculas.cargarPeliculasLandingPROVISIONAL();
-    masoquista.innerHTML += principal.pintarFooter();
+    masoquista.innerHTML += peliculas.cargarPeliculasLanding();
+    //masoquista.innerHTML += principal.pintarFooter();
+    eventCargarPerfilPelicula();
+
 }
 //*****//
 export const cargarPerfilPelicula = () => {
     resetMasoquista();
-    masoquista.innerHTML += peliculas.cargarPerfilPelicula();
+    masoquista.innerHTML += peliculas.perfilPelicula();
     masoquista.innerHTML += principal.pintarFooter();
 }
 
@@ -49,9 +49,8 @@ const eventBtnLanding = () => {
 
 //Cargar perfil de una película (PROVISIONAL)
 const eventCargarPerfilPelicula = () => {
-    let contenedor = document.getElementById("masoquista");
-    arrayPeliculas = contenedor.getElementsByTagName("img");
+    var arrayPeliculas = d.getElementsByClassName("movie-title");
     for (let i = 0; i < arrayPeliculas.length; i++) {
-        arrayPeliculas[i].addEventListener("click", peliculas.cargarPerfilPelicula);
+        arrayPeliculas[i].addEventListener("click", cargarPerfilPelicula);
     }
 }

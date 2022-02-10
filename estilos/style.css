@@ -226,23 +226,6 @@ footer{
   background-size: cover;
 }
 
-.babyDriver {
-  background: url("https://i0.wp.com/media2.slashfilm.com/slashfilm/wp/wp-content/images/baby-driver-poster.jpg");
-  background-size: cover;
-}
-
-.theDarkTower {
-  background: url("http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg");
-  background-size: cover;
-  background-position: 100% 100%;
-}
-
-.bladeRunner2049 {
-  background: url("http://cdn.collider.com/wp-content/uploads/2017/05/blade-runner-2049-poster-ryan-gosling.jpeg");
-  background-size: cover;
-  background-position: 100% 80%;
-}
-
 .header-icon-container {
   position: relative;
 }
@@ -291,10 +274,10 @@ footer{
   display: table-cell;
 }
 
-.imax-logo {
-  width: 50px;
-  height: 15px;
-  background: url("https://6a25bbd04bd33b8a843e-9626a8b6c7858057941524bfdad5f5b0.ssl.cf5.rackcdn.com/media_kit/3e27ede823afbf139c57f1c78a03c870.jpg") no-repeat;
+.paprika-logo {
+  width: 80px;
+  height: 50px;
+  background: url(../media/logow.PNG) no-repeat;
   background-size: contain;
   display: table-cell;
   float: right;
