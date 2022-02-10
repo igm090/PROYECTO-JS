@@ -15,6 +15,8 @@ export const getFilmById = async (id) => {
     let dir = `${url}i=${id}${apiKey}`;
     let film = await fetch(dir);
     let a = await film.json();
+    film.mediaPaprika = getMediaPaprika(film);
+    console.log("Se ha devuelto una película de la API.");
     return a;
 }
 
@@ -24,9 +26,9 @@ export const getFilmsBusqueda = async (titulo, anyo) => {
     let dir = `${url}s=${titulo}`;
     if (anyo.trim() != '') dir += `y=${anyo.trim()}`;
     dir += `${apiKey}`;
-
     let film = await fetch(dir);
     let a = await film.json();
+    console.log("Se ha realizado una búsqueda en la API");
     return a;
 }
 
@@ -57,12 +59,55 @@ export const getMediaPaprika = (film) => {
 //documentación jlinq - http://hugoware.net:4000/projects/jlinq/demo
 
 
-/*export const getFullListaJSON = async (lista) => {
+export const getFullListaJSON = async (lista) => {
     let all = [];
-    lista.forEach(e => {
-        let film = await getFilmById(e.id);
-        all.push(film);
+    for (const e of lista) {
+        let film = await getFilmById(e);
+        film.mediaPaprika = getMediaPaprika(film);
+        all.push(film);   
+    }
+    return all;
+}
+
+//FILTROS (GRITOS DE FONDO)
+//*********************************************************************************/
+//*********************************************************************************/
+
+//año
+export const sortAnyoAsc = (lista) => {
+    return lista.sort((a, b) => (a.Year > b.Year) ? 1 : -1);
+}
+export const sortAnyoDesc = (lista) => {
+    return lista.sort((a, b) => (a.Year < b.Year) ? 1 : -1);
+}
+//década (amplación)
+export const filterDecada = (lista) => {
+    let all = [];
+    lista.forEach(film => {if (film.Year < 1999 && film.Year > 1990) all.push(film);});
+    return all;
+}
+
+//alfabético
+export const sortTituloAsc = (lista) => {
+    return lista.sort((a, b) => (a.Title > b.Title) ? 1 : -1);
+}
+export const sortTituloDesc = (lista) => {
+    return lista.sort((a, b) => (a.Title < b.Title) ? 1 : -1);
+}
+
+//por puntuacion (solo media paprika)
+export const sortMediaAsc = (lista) => {
+    return lista.sort((a, b) => (a.mediaPaprika > b.mediaPaprika) ? 1 : -1);
+}
+export const sortMediaDesc = (lista) => {
+    return lista.sort((a, b) => (a.mediaPaprika < b.mediaPaprika) ? 1 : -1);
+}
+
+//por género
+export const filterGenero = (lista, genero) => {
+    let all = [];
+    lista.forEach(film => {
+        if (film.Genre.toLowerCase().search(genero.toLowerCase()) != -1) all.push(film);
     });
     return all;
 }
-*/

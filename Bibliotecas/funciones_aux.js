@@ -53,4 +53,4 @@ const emailValido = (string) => {
 export const getNombreUser = () => {
     var nombre = document.getElementById("nomRegistro").value;
     return nombre;
-  };
+};

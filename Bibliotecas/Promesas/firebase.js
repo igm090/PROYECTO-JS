@@ -125,6 +125,7 @@ export const cerrarSesion = () => {
  */
 export const getColeccion = async (coleccion) => {
     let obj = await getDocs(coleccion);
+    console.log("Colección recogida con éxito.");
     return obj;
 }
 
@@ -134,25 +135,35 @@ export const getColeccion = async (coleccion) => {
 export const getDocById = async (coleccion, id) => {
     let docu = await doc(coleccion, id);
     let obj = await getDoc(docu);
+    console.log("Documento recogido por ID con éxito.");
     return obj;
 }
 
-/** {DEPRECATED: DUPLICATED IMPORT GETDOC}
+/*
  * Devuelve un DOCUMENTO por su id (necesario para update)
  */
-/*export const getDoc = async (coleccion, id) => {
-    let docu = await doc(listas, id);
+export const getDocumento = async (coleccion, id) => {
+    let docu = await doc(coleccion, id);
+    console.log("Documento primitivo recogido por ID con éxito.");
     return docu;
-}*/
+}
 
 /**
  * Añade un elemento (idFilm) a un array (lista)
  */
 export const updateDocArray = async (array, elem) => {
+  try {
     await updateDoc(array, {films: arrayUnion(elem),});
+    console.log(`Elemento añadido a lista ${array.id}`);
+  } catch (error) {console.log(error);}
 }
 
-
+export const deleteFromDocArray = async (array, elem) => {
+    try {
+      await updateDoc(array, {films: arrayUnion(elem),});
+      console.log(`Elemento eliminado de la lista ${array.id}`);
+    } catch (error) {console.log(error);}
+}
 
 export const crearVistas = async (idU) => {
     await addDoc(vistasCol, {
@@ -170,6 +181,22 @@ export const crearPendientes = async (idU) => {
     console.log("Lista 'pendientes' creada con éxito.");
 }
 
+//mete id listas en user
 export const updateListasUser = async (idU) => {
     
+}
+
+//buscar listas del usuario
+export const getVistasUser = async (idU) => {
+  const resol = await getDocs( query(vistasCol, where("IdUser", "==", idU)));
+  return resol;
+}
+export const getPendientesUser = async (idU) => {
+  const resol = await getDocs(query(pendientesCol, where("IdUser", "==", idU)));
+  return resol;
+}
+
+//Recoge y prepara todos los datos del usuario (listas incuidas) 
+export const getEverything = async () => {
+  console.log("Datos del usuario cargados con éxito.");
 }
