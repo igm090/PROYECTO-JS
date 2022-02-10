@@ -137,22 +137,21 @@ export const getDocById = async (coleccion, id) => {
     return obj;
 }
 
-/** {DEPRECATED: DUPLICATED IMPORT GETDOC}
+/*
  * Devuelve un DOCUMENTO por su id (necesario para update)
  */
-/*export const getDoc = async (coleccion, id) => {
-    let docu = await doc(listas, id);
+export const getDocumento = async (coleccion, id) => {
+    let docu = await doc(coleccion, id);
     return docu;
-}*/
+}
 
 /**
  * Añade un elemento (idFilm) a un array (lista)
  */
 export const updateDocArray = async (array, elem) => {
     await updateDoc(array, {films: arrayUnion(elem),});
+    console.log(`Elemento añadido a lista ${array.id}`);
 }
-
-
 
 export const crearVistas = async (idU) => {
     await addDoc(vistasCol, {
