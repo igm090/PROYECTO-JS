@@ -57,7 +57,7 @@ export const getMediaPaprika = (film) => {
 //documentación jlinq - http://hugoware.net:4000/projects/jlinq/demo
 
 
-export const getFullListaJSON = async (lista) => {
+/*export const getFullListaJSON = async (lista) => {
     let all = [];
     lista.forEach(e => {
         let film = await getFilmById(e.id);
@@ -65,5 +65,4 @@ export const getFullListaJSON = async (lista) => {
     });
     return all;
 }
-
-jlink.from(films.genre)
+*/
