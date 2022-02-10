@@ -1,5 +1,7 @@
 "use strict";
 
+var d = document;
+
 export const resetMasoquista = () => {
     let masoquista = document.getElementById("masoquista");
     masoquista.innerHTML = "";
@@ -15,10 +17,10 @@ export const errorFormulario = (mensaje) => {
     if (!d.getElementById('errorForm')) {
         error = d.createElement('p');
         error.id = 'errorForm';
-        d.getElementById('login').appendChild(error);
+        d.getElementById('formRegistro').appendChild(error);
     }
 
-    d.getElementById('errorForm').innerHTML = plantillas.printErrorLogin(mensaje);
+    d.getElementById('errorForm').innerHTML = mensaje;
 }
 
 export const recogerErrores = (email, pass) => {

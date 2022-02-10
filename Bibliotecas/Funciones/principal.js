@@ -9,3 +9,14 @@ export const cargarPrincipal = () => {
     masoquista.innerHTML += plantillasPrincipal.pintarBody();
     masoquista.innerHTML += plantillasPrincipal.pintarFooter();
 }
+
+export const cargarContacto = () => {
+    resetMasoquista();
+    masoquista.innerHTML += plantillasPrincipal.pintarContacto();
+}
+
+export const cargarTops = () => {
+    resetMasoquista();
+    masoquista.innerHTML += plantillasPrincipal.pintarTopGenerico();
+    masoquista.innerHTML += plantillasPrincipal.pintarFooter();
+}

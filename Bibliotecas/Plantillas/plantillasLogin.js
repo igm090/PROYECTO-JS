@@ -9,21 +9,15 @@ export const pintarLogin = () => {
             <form action="" method="" class="row g-3" id="formLogin">
                 <h4>¡Bienvenido!</h4>
                 <div class="col-12">
-                    <label>Usuario</label>
-                    <input type="text" name="username" class="form-control" placeholder="Usuario">
+                    <label>Email</label>
+                    <input type="email" id="emailLogin" name="mail" class="form-control" placeholder="Email">
                 </div>
                 <div class="col-12">
                     <label>Contraseña</label>
-                    <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                    <input type="password" id="passLogin" name="password" class="form-control" placeholder="Contraseña">
                 </div>
                 <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe"> Recuérdame</label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <input type="button" class="btn btn-dark float-end" value="Inicia sesión"/>
+                    <input type="button" id="btnLogin" class="btn btn-dark float-end" value="Inicia sesión"/>
                 </div>
             </form>
             <hr class="mt-4">
@@ -35,6 +29,15 @@ export const pintarLogin = () => {
 </div>
 </div>`;
 };
+
+/* recuérdame aún no se implementa
+* <div class="col-12">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="rememberMe">
+        <label class="form-check-label" for="rememberMe"> Recuérdame</label>
+    </div>
+</div>
+*/
 
 export const pintarRegistro = () => {
     return `
@@ -61,7 +64,7 @@ export const pintarRegistro = () => {
                         </div>
 
                         <div class="col-md-12">
-                           <input type="button" class="btn btn-primary float-end" value="Regístrate" id="btnRegistrarse"/>
+                           <input type="button" id="btnRegistrarse" class="btn btn-primary float-end" value="Regístrate"/>
                         </div>
                     </div>
                 </form>

@@ -1,9 +1,8 @@
 "use strict";
-import * as principal from "./Bibliotecas/Funciones Principal/cargarPrincipal.js";
-import * as acceso from "./Bibliotecas/Login/login.js";
-import {cargarTops} from "./Bibliotecas/Funciones Principal/tops.js";
-import {cargarPerfil} from "./Bibliotecas/Funciones Perfil/perfil.js";
-import {cargarContacto} from "./Bibliotecas/Funciones Principal/contacto.js";
+import * as principal from "./Bibliotecas/Funciones/principal.js";
+import * as acceso from "./Bibliotecas/Acceso/acceso.js";
+import * as firebase from "./Bibliotecas/Promesas/firebase.js"
+import {cargarPerfil} from "./Bibliotecas/Funciones/perfil.js";
 
 //var cuerpazo = document.getElementById("cuerpazo");
 
@@ -19,19 +18,27 @@ principal.cargarPrincipal();
 d.getElementById("inicio").addEventListener("click", principal.cargarPrincipal);
 
 //Tops
-d.getElementById("topGenerico").addEventListener("click", cargarTops);
+d.getElementById("topGenerico").addEventListener("click", principal.cargarTops);
 
 //Perfil
 d.getElementById("perfil").addEventListener("click", cargarPerfil);
 
 //Contactos
-d.getElementById("contacto").addEventListener("click", cargarContacto);
+d.getElementById("contacto").addEventListener("click", principal.cargarContacto);
 
 //Login
 d.getElementById("login").addEventListener("click", acceso.cargarLogin);
 
 //Registro
 d.getElementById("registro").addEventListener("click", acceso.cargarRegistro);
+
+//Cerrar Sesión
+d.getElementById("cerrarSesion").addEventListener("click", firebase.cerrarSesion);
+
+
+/********** Contenido página **********/
+//Botón landing registrarse
+d.getElementById("btnLanding").addEventListener("click", acceso.cargarRegistro);
 
 
 }

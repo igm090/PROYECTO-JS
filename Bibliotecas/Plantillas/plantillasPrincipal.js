@@ -5,8 +5,8 @@ export const pintarBody = () => {
 <div id="home">
     <div class="landing-text">
         <h1>PAPRIKA</h1>
-        <h3>Página de inicio.</h3>
-        <a href="#" class="btn btn-default btn-lg">Regístrate</a> 
+        <h3>Frase comercial pegadiza.</h3>
+        <a href="#" id="btnLanding" class="btn btn-default btn-lg">Regístrate</a> 
     </div>
 </div>
 
@@ -82,12 +82,15 @@ export const pintarFooter = () => {
     <footer class="container-fluid text-center">
     <div class="row">
         <div class="col-sm-4">
-            <h3>Contacto</h3>
+            <h3>LEGAL</h3>
             <br>
-            <h4>Información de contacto</h4>
+            <h4>Copyright© Paprika Studios.</h4>
+            <h4>Todos los derechos reservados.</h4>
+            <h4>Página por Isela G.M y Álvaro V.C.</h4>
         </div>
         <div class="col-sm-4">
-            <h3>Redes o algo así xddd</h3>
+            <h3>SÍGUENOS</h3>
+            <br>
             <a href="#" class="fa fa-facebook"></a>
             <a href="#" class="fa fa-twitter"></a>
             <a href="#" class="fa fa-instagram"></a>

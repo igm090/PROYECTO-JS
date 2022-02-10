@@ -1,6 +1,6 @@
 "use strict";
 import * as plantillasLogin from "../Plantillas/plantillasLogin.js";
-import { validarFormulario } from "../Promesas/firebase.js"
+import { validarFormulario, iniciarSesion } from "../Promesas/firebase.js"
 import { resetMasoquista } from "../funciones_aux.js";
 
 //Variables.
@@ -11,7 +11,9 @@ var masoquista = d.getElementById("masoquista");
 export const cargarLogin = () => {
     resetMasoquista();
     masoquista.innerHTML += plantillasLogin.pintarLogin();
-    //falta botón login
+    
+    let btnLogin = d.getElementById("btnLogin");
+    eventLogin(btnLogin);
 
     let miniRegistro = d.getElementById("miniRegistro");
     eventMiniRegistro(miniRegistro);
@@ -28,9 +30,23 @@ export const cargarRegistro = () => {
     eventMiniLogin(miniLogin);
 }
 
+
+
 //Event Listeners Registrarse e Iniciar sesión.
 const eventRegistrarse = (reg) => {
     reg.addEventListener("click", validarFormulario);
+}
+
+const eventLogin = (log) => {
+    log.addEventListener(
+    "click",
+    () => {
+        let email = d.getElementById("emailLogin").value;
+        let pass = d.getElementById("passLogin").value;
+        iniciarSesion(email, pass);
+    },
+    false
+    );
 }
 
 
