@@ -6,7 +6,7 @@ export const pintarLogin = () => {
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <div class="login-form bg-light mt-4 p-4">
-            <form action="" method="" class="row g-3">
+            <form action="" method="" class="row g-3" id="formLogin">
                 <h4>¡Bienvenido!</h4>
                 <div class="col-12">
                     <label>Usuario</label>
@@ -23,7 +23,7 @@ export const pintarLogin = () => {
                     </div>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-dark float-end">Inicia sesión</button>
+                    <input type="button" class="btn btn-dark float-end" value="Inicia sesión"/>
                 </div>
             </form>
             <hr class="mt-4">
@@ -42,29 +42,26 @@ export const pintarRegistro = () => {
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="signup-form">
-                <form action="" class="mt-5 border p-4 bg-light shadow">
+                <form action="" class="mt-5 border p-4 bg-light shadow" id="formRegistro">
                     <h4 class="mb-5 text-secondary">Crea tu cuenta</h4>
                     <div class="row">
-                        <div class="mb-3 col-md-6">
+                        <div class="mb-4 col-md-12">
                             <label>Nombre<span class="text-danger">*</span></label>
-                            <input type="text" name="fname" class="form-control" placeholder="Introduce tu nombre">
+                            <input type="text" id="nomRegistro" name="fname" class="form-control" placeholder="Introduce tu nombre">
                         </div>
 
-                        <div class="mb-3 col-md-6">
-                            <label>Apellidos<span class="text-danger">*</span></label>
-                            <input type="text" name="Lname" class="form-control" placeholder="Introduce tus apellidos">
+                        <div class="mb-4 col-md-12">
+                            <label>Email<span class="text-danger">*</span></label>
+                            <input type="email" id="emailRegistro" name="fmail" class="form-control" placeholder="Introduce tu email">
                         </div>
 
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-4 col-md-12">
                             <label>Contraseña<span class="text-danger">*</span></label>
-                            <input type="password" name="password" class="form-control" placeholder="Introduce tu contraseña">
+                            <input type="password" id="passRegistro" name="password" class="form-control" placeholder="Introduce tu contraseña">
                         </div>
-                        <div class="mb-3 col-md-12">
-                            <label>Repite la contraseña<span class="text-danger">*</span></label>
-                            <input type="password" name="confirmpassword" class="form-control" placeholder="Confirma la contraseña">
-                        </div>
+
                         <div class="col-md-12">
-                           <button class="btn btn-primary float-end">Regístrate</button>
+                           <input type="button" class="btn btn-primary float-end" value="Regístrate" id="btnRegistrarse"/>
                         </div>
                     </div>
                 </form>
@@ -74,3 +71,9 @@ export const pintarRegistro = () => {
     </div>
 </div>`;
 };
+
+/* Confirmar la contraseña para después
+    <div class="mb-4 col-md-12">
+        <label>Repite la contraseña<span class="text-danger">*</span></label>
+        <input type="password" name="confirmpassword" class="form-control" placeholder="Confirma la contraseña">
+    </div> */
