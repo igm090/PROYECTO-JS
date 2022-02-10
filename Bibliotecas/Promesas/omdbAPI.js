@@ -15,7 +15,7 @@ export const getFilmById = async (id) => {
     let dir = `${url}i=${id}${apiKey}`;
     let film = await fetch(dir);
     let a = await film.json();
-    film.mediaPaprika = getMediaPaprika(film);
+    film.mediaPaprika = getMediaPaprika(a);
     console.log("Se ha devuelto una película de la API.");
     return a;
 }
