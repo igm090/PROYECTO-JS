@@ -96,5 +96,3 @@ d.getElementById('miLista').addEventListener('click', () => {
   printLista();
 });
 */
-
-/////CVS
