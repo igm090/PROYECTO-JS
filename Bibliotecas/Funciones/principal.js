@@ -9,12 +9,14 @@ import * as firebase from "/Bibliotecas/Promesas/firebase.js";
 //Variables
 var d = document;
 var masoquista = d.getElementById("masoquista");
+var contenedorPelis;
 
-export const cargarPrincipal = async () => {
+export const cargarPrincipal = async (b) => {
     resetMasoquista();
     masoquista.innerHTML += principal.pintarBody();
     masoquista.innerHTML += principal.pintarFooter();
     eventBtnLanding();
+    cargarPeliculasLanding(b);
 }
 
 /*export const cargarTops = () => {
@@ -24,9 +26,10 @@ export const cargarPrincipal = async () => {
 }*/
 
 export const cargarPeliculasLanding = (b) => {
-    resetMasoquista();
+    contenedorPelis = d.getElementById("contPeliculas");
+
     for (let i = 0; i < b.length; i++) {
-        masoquista.innerHTML += peliculas.pintarPeliculasLanding(b[i]);
+        contenedorPelis.innerHTML += peliculas.pintarPeliculasLanding(b[i]);
     }
     eventCargarPerfilPelicula();
     //masoquista.innerHTML += principal.pintarFooter();

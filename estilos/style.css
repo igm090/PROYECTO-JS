@@ -40,18 +40,61 @@ html, body, #masoquista{
     background-size: cover;
 }
 
+#celdita{
+    background-color: white;
+    border-radius:15px;
+    border-style: double;
+    border: 1px black solid;
+    width: 50%;
+    margin: 10px auto;
+    padding: 20px 0;
+    box-shadow: 1px 3px 5px black;
+    min-width: 322px;
+}
+
+#home h1{
+    text-shadow: 1px 2px 3px black;
+}
+
+#home h2{
+    text-shadow: 0.5px 2px 2px black;
+    color: #e51b23;
+    font-weight: bold;
+    padding: 0px 5px;
+    margin: 0px;
+}
+
+#home h3{
+    color: black;
+    padding: 5px 0px;
+    font-style: italic;
+}
+
+#btnLanding{
+    margin: 10px 0px;
+    color: black;
+    box-shadow: 1px 3px 5px black;
+}
+
+.spice{
+    box-shadow: 2px 4px 10px black;
+}
+
+#btnLanding:hover{
+    color: #e51b23;
+}
+
 .landing-text {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 .landing-text h1{
     font-size: 500%;
     font-weight: 700;
     color: #e51b23;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .padding{
@@ -63,9 +106,9 @@ html, body, #masoquista{
 }
 
 #fixed {
-    background: url(../media/background-fixed2.jpg) no-repeat center center fixed;
+    background: url(../media/collage.jpg) no-repeat center center fixed;
     display: table;
-    height: 50%;
+    height: 35%;
     position: relative;
     width: 100%;
     background-size: cover;

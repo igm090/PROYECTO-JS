@@ -4,24 +4,26 @@ export const pintarBody = () => {
     return `
 <div id="home">
     <div class="landing-text">
-        <h1>PAPRIKA</h1>
-        <h3>Frase comercial pegadiza.</h3>
+        <div id="celdita">
+        <h1>PAPRIKA STUDIOS'</h1>
+        <h2>Film database</h2>
+        <h3>Donde se recogen las películas más spicy.</h3>
         <a href="#" id="btnLanding" class="btn btn-default btn-lg">Regístrate</a> 
-    </div>
+        </div>
+        </div>
 </div>
 
 <div class="padding">
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <img src="media/placeholder2.jpg">
+            <img class="spice" src="media/logo.png">
         </div>
         <div class="col-sm-6 text-center">
-            <h2>Aquí van a haber pelis muy chulas</h2>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati id
-                consequuntur quis numquam maxime voluptatem temporibus non ipsa, amet recusandae animi asperiores vitae distinctio illo.</p>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati id
-                consequuntur quis numquam maxime voluptatem temporibus non ipsa, amet recusandae animi asperiores vitae distinctio illo.</p>
+            <h2>Paprika Spice</h2>
+            <p class="lead"> Ese sentimiento de alivio cuando los buenos ganan, esa despedida amarga cuando los amantes tienen
+            que separarse en el camino, la diversión cuando te metes de lleno en aventuras fantásticas, todo eso es ¡La Paprika Spice!
+            Ese el nivel del sabor inolvidable que sientes cuando una película que te marca.</p>
         </div>
     </div>
 </div>
@@ -29,21 +31,8 @@ export const pintarBody = () => {
 
 <div class="padding">
 <div class="container">
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <h4>Ejemplo 1</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati.</p>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <img src="media/logo.png" class="img-responsive">
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <h4>Ejemplo 2</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati.</p>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <img src="media/logo.png" class="img-responsive">
-        </div>
+    <div class="row" id="contPeliculas">
+        
     </div>
 </div>
 </div>
@@ -56,18 +45,14 @@ export const pintarBody = () => {
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <h4>Te explico por qué somos unos genios.</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati id
-                consequuntur quis numquam maxime voluptatem temporibus non ipsa, amet recusandae animi asperiores vitae distinctio illo.
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati id
-                consequuntur quis numquam maxime voluptatem temporibus non ipsa, amet recusandae animi asperiores vitae distinctio illo</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati id
-                consequuntur quis numquam maxime voluptatem temporibus non ipsa, amet recusandae animi asperiores vitae distinctio illo.
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati id
-                consequuntur quis numquam maxime voluptatem temporibus non ipsa, amet recusandae animi asperiores vitae distinctio illo</p>
+            <h3>Nuestros expertos en Paprika Studios.</h3>
+            <p>Nuestros expertos te recomiendan que te hagas una cuenta con nosotros para que puedas recoger todas
+            las películas que has visto y las que aún están por ver.</p>
+            <p>Gracias a nuestra puntuación personalizada de Paprika Spice tienes las mejores recomendaciones para
+            disfrutrar del mejor cine habido y por haber.</p>
         </div>
         <div class="col-sm-6">
-            <img src="media/placeholder3.png">
+            <img class="spice" src="media/meeting.jpg">
         </div>
     </div>
 </div>

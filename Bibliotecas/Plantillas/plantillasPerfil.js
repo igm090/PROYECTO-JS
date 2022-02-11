@@ -2,6 +2,79 @@
 
 export const pintarPerfil = () => {
     return `    
+<div class="row gutters-sm">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+            </div>
+            <div class="mt-12">
+                <h4>John Doe</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row gutters-sm">
+        <div class="col-sm-6 mb-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="mb-0">Lista Pendientes</h3>
+                    <input type="button" value="Lista Pendientes" id="listaPendientes">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="mb-0">Lista Vistas</h3>
+                    <input type="button" value="Lista Vistas" id="listaVistas">
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row gutters-sm">
+    <div class="card mt-3">
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h4 class="mb-0">Correo:</h4>
+            <span class="text-secondary">correogenérico@correo.es</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h4 class="mb-0">Fecha Registro:</h4>
+            <span class="text-secondary">15/11/2022</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h4 class="mb-0">Borrar cuenta:</h4>
+            <input type="button" value="Borrar Cuenta" id="borrarCuenta">
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+`};
+
+
+        /*      SUBIR          <div class="file btn btn-lg btn-primary">
+                    Change Photo
+                <input type="file" name="file"/> */
+
+
+
+                /*export const pintarPerfil = () => {
+    return `    
     <div class="row gutters-sm">
     <div class="col-md-4 mb-3">
         <div class="card">
@@ -11,7 +84,7 @@ export const pintarPerfil = () => {
                 <div class="file btn btn-lg btn-primary">
                     Change Photo
                 <input type="file" name="file"/>
-        </div>
+                </div>
             <div class="mt-3">
                 <h4>John Doe</h4>
                 <p class="text-secondary mb-1">Full Stack Developer</p>
@@ -160,4 +233,4 @@ export const pintarPerfil = () => {
         </div>
         </div>
     </div>
-    </div>`};
+    </div>`}; */
