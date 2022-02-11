@@ -28,6 +28,7 @@ let listaPruebaDoc = await firebase.getDocumento(listasCol, idLista);
 
 ////////////////
 //BUSQUEDA FUNCIONAL
+/*
 d.getElementById('buscar').addEventListener('click', async () => {
   let busqueda = d.getElementById('barrab').value;
   let anyo = d.getElementById('anyob').value;
@@ -55,6 +56,7 @@ const printFilms = (lista) => {
     });   
   }
 }
+*/
 /*
 //*******************************************************************+ */
 //*******************************************************************+ */
@@ -95,7 +97,17 @@ d.getElementById('miLista').addEventListener('click', () => {
 });
 */
 
-d.getElementById('getUser').addEventListener('click', async () => {
+/*d.getElementById('getUser').addEventListener('click', async () => {
   let box = d.getElementById('miListaBox');
   console.log(id);
 });
+*/
+/*
+var fs = require('fs');
+var array = fs.readFileSync('/Dataset/top1500.txt').toString().split("\n");
+
+console.log(array);
+*/
+//for(i in array) {
+//    console.log(array[i]);
+//}

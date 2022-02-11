@@ -184,10 +184,8 @@ export const getDocumento = async (coleccion, id) => {
  * Añade un elemento (idFilm) a un array (lista)
  */
 export const updateDocArray = async (array, elem) => {
-  try {
-    await updateDoc(array, {films: arrayUnion(elem),});
+    await updateDoc(array, {films: arrayUnion(elem)});
     console.log(`Elemento añadido a lista ${array.id}`);
-  } catch (error) {console.log(error);}
 }
 
 export const deleteFromDocArray = async (array, elem) => {
@@ -201,7 +199,7 @@ export const deleteFromDocArray = async (array, elem) => {
 
 //buscar listas del usuario
 export const getVistasUser = async (idU) => {
-  const resol = await getDoc(query(vistasCol, where("idUser", "==", idU)));
+  const resol = await getDocs(query(vistasCol, where("idUser", "==", idU)));
   let d;
   resol.forEach((doc) => {
     d = doc;
@@ -253,7 +251,7 @@ export const borrarPendientes = async () => {
 }
 
 export const getSesionId = () => {
-
+  return d.getElementsByTagName('li')[0].id;
 }
 
 //borrar lista
@@ -261,4 +259,16 @@ export const borrarCuenta = () => {
   let userId = getSesionId();
   let vistas = getVistasUser(userId);
   let pendientes = getPendientesUser(userId);
+}
+
+//******************* */
+//Añade película a lista
+export const addPelicula = async (idUser, filmId, tipoLista) => {
+  let docL;
+  let col;
+  console.log(`${idUser}, ${filmId}, ${tipoLista}`);
+  if (tipoLista == 'vistas') { docL = await getVistasUser(idUser); col = vistasCol;
+  } else { docL = await getPendientesUser(idUser); col=pendientesCol;}
+  let listaDoc = await getDocumento(col, docL.id);
+  updateDocArray(listaDoc, filmId);
 }

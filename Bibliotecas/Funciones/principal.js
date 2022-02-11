@@ -4,6 +4,7 @@ import * as peliculas from "../Plantillas/plantillasPeliculas.js";
 import * as acceso from "../Acceso/acceso.js";
 import { resetMasoquista } from "../funciones_aux.js";
 import * as api from "/Bibliotecas/Promesas/omdbAPI.js";
+import * as firebase from "/Bibliotecas/Promesas/firebase.js";
 
 //Variables
 var d = document;
@@ -40,6 +41,7 @@ export const cargarPerfilPelicula = (pelicula) => {
     resetMasoquista();
     masoquista.innerHTML += peliculas.pintarPerfilPelicula(pelicula);
     masoquista.innerHTML += principal.pintarFooter();
+    setupMenu();
 }
 
 
@@ -56,7 +58,6 @@ const eventCargarPerfilPelicula = async () => {
     for (let i = 0; i < arrayPeliculas.length; i++) {
         let idPelicula = arrayPeliculas[i].parentElement.parentElement.parentElement.parentElement.id;
         let pelicula = await buscarPelicula(idPelicula);
-        console.log(pelicula);
         arrayPeliculas[i].addEventListener("click", () =>{
             cargarPerfilPelicula(pelicula);
         });
@@ -93,4 +94,23 @@ const pintarBusqueda = (films) => {
         contenedorPelisBusqueda.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
     }
     eventCargarPerfilPelicula();
+}
+
+//********************************************** */
+//Menú perfil película
+const setupMenu = () => {
+    if (firebase.getSesionId() == '') d.getElementById('btnAnyadir').parentElement.classList.add('hidden');
+    else d.getElementById('btnAnyadir').parentElement.classList.remove('hidden');
+
+    d.getElementById('btnAnyadir').addEventListener('click', async function () {
+        console.log("boton añadir");
+        let op = d.getElementById('selectAnyadir').options[d.getElementById('selectAnyadir').selectedIndex].value;
+        if (op != "none") {
+            let filmId = this.parentElement.id;
+            let userId = firebase.getSesionId();
+            firebase.addPelicula(userId, filmId, op)
+        } else {
+            alert("Selecciona una lista");
+        }
+    });
 }
