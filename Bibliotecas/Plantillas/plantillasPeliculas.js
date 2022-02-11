@@ -38,7 +38,7 @@ return `
             <div class="movie-card" id="${pelicula.imdbID}"> 
         
                 <div class="movie-header" style="background: url(${pelicula.Poster})">
-                    <img src="media/sello2.png" alt="Sello Paprika">
+                    <img src="css/media/sello2.png" alt="Sello Paprika">
                 </div><!--movie-header-->
         
                 <div class="movie-content">

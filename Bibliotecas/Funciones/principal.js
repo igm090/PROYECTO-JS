@@ -97,7 +97,7 @@ const getDatosBusqueda = () => {
 }
 
 const pintarBusqueda = (films) => {
-    contenedorPelisBusqueda = d.getElementById("contPeliculasBuscar");
+    let contenedorPelisBusqueda = d.getElementById("contPeliculasBuscar");
     for (let i = 0; i < films.Search.length; i++) {
         contenedorPelisBusqueda.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
     }
