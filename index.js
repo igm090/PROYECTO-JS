@@ -14,6 +14,7 @@ window.onload = () => {
 var d = document;
 
 /********** Nada más cargar **********/
+firebase.cerrarSesion();
 principal.setupPrincipal();
 
 /********** Cabecera Listeners **********/
