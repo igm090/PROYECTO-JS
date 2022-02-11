@@ -25,6 +25,7 @@ export const setupPrincipal = async () => {
     if (bufferArray == '') bufferArray = await aux.textFileToArray();
     let shortlist = aux.generarShortlist(bufferArray);
     shortlist = await api.getFullListaJSON(shortlist);
+    console.log("setupPrincipal");
     console.log(shortlist);
     cargarPrincipal(shortlist);
 }
