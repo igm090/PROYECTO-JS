@@ -4,10 +4,13 @@ export const pintarBody = () => {
     return `
 <div id="home">
     <div class="landing-text">
-        <h1>PAPRIKA</h1>
-        <h3>Frase comercial pegadiza.</h3>
+        <div id="celdita">
+        <h1>PAPRIKA STUDIOS'</h1>
+        <h2>Film database</h2>
+        <h3>Donde se recogen las películas más spicy.</h3>
         <a href="#" id="btnLanding" class="btn btn-default btn-lg">Regístrate</a> 
-    </div>
+        </div>
+        </div>
 </div>
 
 <div class="padding">
