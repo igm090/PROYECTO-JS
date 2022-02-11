@@ -43,4 +43,9 @@ d.getElementById("cerrarSesion").addEventListener("click", firebase.cerrarSesion
 //Logo Cabecera.
 d.getElementById("logoCabecera").addEventListener("click", principal.cargarPrincipal);
 
+//Buscar Pelicula.
+d.getElementById("buscarPelicula").addEventListener("click", principal.cargarBuscar);
+
 }
+
+

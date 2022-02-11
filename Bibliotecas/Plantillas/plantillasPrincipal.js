@@ -162,3 +162,10 @@ export const pintarTopGenerico = () => {
     </div>
 `;
 };
+
+export const pintarBuscar = () => {
+    return `
+        <input type="text" id='barrab' />
+        <input type="text" id='anyob' />
+        <input type="button" value="buscar" id='buscar' />
+    </form>`}
