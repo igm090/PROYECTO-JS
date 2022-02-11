@@ -1,4 +1,4 @@
-import * as j from '/Bibliotecas/Otras/jquery-3.6.0.js';
+import * as j from "./Jquery/jquery-3.6.0.js"
 "use strict";
 
 var d = document;

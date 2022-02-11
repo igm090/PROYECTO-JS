@@ -1,13 +1,12 @@
 "use strict";
 
 export const pintarPerfil = (usuario) => {
-    console.log(usuario);
     return `    
 <div class="row gutters-sm">
     <div class="card">
         <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-                <img src="" alt="Tu foto de perfil" class="rounded-circle" width="150">
+                <img src="media/foto-defecto.jpg" alt="Tu foto de perfil" class="rounded-circle" width="150">
             </div>
             <div class="mt-12">
                 <h4>${usuario.data().nomDisplay}</h4>

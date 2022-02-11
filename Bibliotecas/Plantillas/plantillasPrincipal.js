@@ -17,7 +17,7 @@ export const pintarBody = () => {
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <img class="spice" src="media/logo.png">
+            <img class="spice" src="css/media/logo.png">
         </div>
         <div class="col-sm-6 text-center">
             <h3>Paprika Spice</h3>
@@ -52,7 +52,7 @@ export const pintarBody = () => {
             disfrutrar del mejor cine habido y por haber.</p>
         </div>
         <div class="col-sm-6">
-            <img class="spice" src="media/meeting.jpg">
+            <img class="spice" src="css/media/meeting.jpg">
         </div>
     </div>
 </div>
@@ -84,67 +84,10 @@ export const pintarFooter = () => {
             <a href="#" class="fa fa-youtube"></a>            
         </div>
         <div class="col-sm-4">
-            <img src="media/logow.PNG" class="icon">
+            <img src="css/media/logow.PNG" class="icon">
         </div>
     </div>
 </footer>
-`;
-};
-
-export const pintarTopGenerico = () => {
-    return `
-    <div class="padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <h4>Ejemplo 1</h4>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati.</p>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="media/logo.png" class="img-responsive">
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <h4>Ejemplo 2</h4>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati.</p>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="media/logo.png" class="img-responsive">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <h4>Ejemplo 1</h4>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati.</p>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="media/logo.png" class="img-responsive">
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <h4>Ejemplo 2</h4>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati.</p>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="media/logo.png" class="img-responsive">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <h4>Ejemplo 1</h4>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati.</p>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="media/logo.png" class="img-responsive">
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <h4>Ejemplo 2</h4>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam similique odio tempore reprehenderit obcaecati.</p>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="media/logo.png" class="img-responsive">
-            </div>
-        </div>
-    </div>
-    </div>
 `;
 };
 

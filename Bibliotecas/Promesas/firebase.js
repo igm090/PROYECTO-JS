@@ -207,12 +207,15 @@ export const getVistasUser = async (idU) => {
   return d;
 }
 export const getPendientesUser = async (idU) => {
+  console.log("probando el idu");
+  console.log(idU);
   const resol = await getDocs(query(pendientesCol, where("idUser", "==", idU)));
-  let d;
+  let aux;
+  console.log("Imprimiendo la supuesta lista");
   resol.forEach((doc) => {
-    d = doc;
+    aux = doc;
   })
-  return d;
+  return aux;
 }
 
 export const getUserByIdAuth = async (idU) => {

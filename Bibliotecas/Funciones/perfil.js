@@ -26,22 +26,27 @@ const eventosPerfil = () => {
 }
 
 //Funciones para pintar las listas.
-const cargarListaPendientes = () => {
+const cargarListaPendientes = async () => {
     resetMasoquista();
-
-    let docP = firebase.getPendientesUser(idUser);
-    let listaP = getFullListaJSON(docP.data().films);
+    console.log("probando123");
+    console.log(idUser);
+    let docP = await firebase.getPendientesUser(idUser);
+    let listaP = await getFullListaJSON(docP.data().films);
 
     for (let i = 0; i < listaP.length; i++){
-        masoquista.innerHTML += plantillasPerfil.pintarListaPendientes();
+        masoquista.innerHTML += plantillasPerfil.pintarListaPendientes(listaP[i]);
     }
 }
 
-const cargarListaVistas = () => {
+const cargarListaVistas = async () => {
     resetMasoquista();
 
-    let listaV = firebase.getVistasUser(idUser);
+    let listaV = await firebase.getVistasUser(idUser);
     masoquista.innerHTML += plantillasPerfil.pintarListaVistas(); 
+
+    for (let i = 0; i < listaV.length; i++){
+        masoquista.innerHTML += plantillasPerfil.pintarListaPendientes(listaV[i]);
+    }
 }
 
 //Recoger listas del usuario

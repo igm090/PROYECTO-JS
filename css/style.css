@@ -36,7 +36,7 @@ html, body, #masoquista{
 }
 
 #home {
-    background: url(../media/background-clapper.jpg) no-repeat center center fixed;
+    background: url(../css/media/background-clapper.jpg) no-repeat center center fixed;
     display: table;
     height: 80%;
     position: relative;
@@ -115,7 +115,7 @@ h3{
 }
 
 #fixed {
-    background: url(../media/collage.jpg) no-repeat center center fixed;
+    background: url(../css/media/collage.jpg) no-repeat center center fixed;
     display: table;
     height: 35%;
     position: relative;
@@ -334,7 +334,7 @@ footer{
 .paprika-logo {
   width: 80px;
   height: 50px;
-  background: url(../media/logow.PNG) no-repeat;
+  background: url(../css/media/logow.PNG) no-repeat;
   background-size: contain;
   display: table-cell;
   float: right;
