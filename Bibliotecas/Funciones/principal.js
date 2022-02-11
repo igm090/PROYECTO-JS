@@ -67,7 +67,26 @@ const buscarPelicula = async (id) => {
     return pelicula;
 }
 
-export const cargarBuscar = async (id) => {
+export const cargarBuscar = (id) => {
     resetMasoquista();
     masoquista.innerHTML += principal.pintarBuscar();
+    d.getElementById("buscar").addEventListener("click", async () => {
+        let datos = getDatosBusqueda();
+        let films = await api.getFilmsBusqueda(datos[0], datos[1]);
+        pintarBusqueda(films);
+    })
+}
+
+const getDatosBusqueda = () => {
+    let nom = d.getElementById("barrab").value;
+    let anyo = d.getElementById("anyob").value;
+    return new Array(nom, anyo);
+}
+
+const pintarBusqueda = (films) => {
+
+    for (let i = 0; i < films.Search.length; i++) {
+    masoquista.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
+    }
+    eventCargarPerfilPelicula();
 }

@@ -10,7 +10,8 @@ const pendientesCol = collection(getFirestore(app), "pendientes");
 
 //Variables
 var d = document;
-var nombreSesion = d.getElementById("nomSesion");
+var idSesion = d.getElementsByTagName("li")[0];
+var nombreSesion = d.getElementsByTagName("li")[0].firstChild;
 
 /**
  * Comprueba el form, si está bien crea el user.
@@ -107,14 +108,15 @@ const recogerUserBD = async (uid) => {
       user.docs.map((documento) => {
         let nomDisplay = documento.data().nomDisplay;
         //Traer listas después;
-        manejarSesion(nomDisplay);
+        manejarSesion(nomDisplay, uid);
       });
     });
   };
 
 
-const manejarSesion = (nomDisplay) => {
+const manejarSesion = (nomDisplay, uid) => {
     nombreSesion.innerHTML = "Hola, " + nomDisplay;
+    idSesion.id = uid;
     cargarPrincipal();
 };
 
@@ -134,7 +136,7 @@ export const cerrarSesion = () => {
     autentificacion
       .signOut()
       .then(() => {
-        nomSesion.innerHTML = "";
+        nombreSesion.innerHTML = "";
         console.log("Sesión cerrada.");
         cargarPrincipal();
       })

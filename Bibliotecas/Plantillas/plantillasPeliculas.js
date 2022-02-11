@@ -299,3 +299,23 @@ return `
 		</div><!--movie-content-->
 	</div><!--movie-card-->`
     };
+
+    export const pintarPeliculasBusqueda = (pelicula) => {
+        return `   
+            <div class="movie-card" id="${pelicula.imdbID}"> 
+        
+                <div class="movie-header" style="background: url(${pelicula.Poster})">
+                </div><!--movie-header-->
+        
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
+                        </a>
+                        <div class="paprika-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                    </div>
+                </div><!--movie-content-->
+            </div><!--movie-card-->`
+            };
