@@ -2,7 +2,7 @@ import {app, autentificacion} from "./datosFirebase.js";
 import {getFirestore, collection, onSnapshot, updateDoc, getDocs, getDoc, doc, where, addDoc, arrayUnion, query} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import * as aux from "../funciones_aux.js";
-import {cargarPrincipal} from "../Funciones/principal.js"
+import {setupPrincipal} from "../Funciones/principal.js"
 
 const usersCol = collection(getFirestore(app), "usuarios");
 const vistasCol = collection(getFirestore(app), "vistas");
@@ -119,7 +119,7 @@ const recogerUserBD = async (uid) => {
 const manejarSesion = (nomDisplay, uid) => {
     d.getElementsByTagName("li")[0].firstChild.innerHTML = "Hola, " + nomDisplay;
     idSesion.id = uid;
-    cargarPrincipal();
+    setupPrincipal();
 };
 
 //Comprobamos el estado de la sesión en cuanto cambia.
@@ -141,7 +141,7 @@ export const cerrarSesion = () => {
       .then(() => {
         d.getElementsByTagName("li")[0].firstChild.innerHTML = "";
         console.log("Sesión cerrada.");
-        cargarPrincipal();
+        setupPrincipal();
       })
       .catch((error) => {
         console.log(error);

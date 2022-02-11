@@ -13,10 +13,11 @@ const url = "http://www.omdbapi.com/?";
 export const getFilmById = async (id) => {
     let dir = `${url}i=${id}${apiKey}`;
     let film = await fetch(dir);
-    let a = await film.json();
-    a.mediaPaprika = getMediaPaprika(a);
+    let filmJSON = await film.json();
+    if (filmJSON.Ratings.length == 3 && filmJSON.Ratings) filmJSON.mediaPaprika = getMediaPaprika(filmJSON);
+    else filmJSON.mediaPaprika = "N/A";
     console.log("Se ha devuelto una película de la API.");
-    return a;
+    return filmJSON;
 }
 
 /**Buscar películas por título y año
