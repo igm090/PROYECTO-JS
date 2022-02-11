@@ -86,9 +86,15 @@ return `
                                     </ul>
                                 </div>
                             </div>
-                    <div class="col-md-2" id="${pelicula.imdbID}">
-                        <input type="submit" class="profile-edit-btn" name="btnAnyadir" value="Añadir película"/>
-                    </div>
+                    <div class="col-md-2" id='${pelicula.imdbID}' >
+                    Añadir a lista
+                    <select id='selectAnyadir'>
+                        <option value='none' selected>Selecciona una lista</option>
+                        <option value='vistas'>Vistas</option>
+                        <option value='pendientes'>Pendientes</option>
+                    </select>
+                    <input id='btnAnyadir' type="button" class="profile-edit-btn" name="btnAnyadir" value="Añadir a lista"/>
+                </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
