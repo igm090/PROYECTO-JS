@@ -2,8 +2,8 @@ import {app, autentificacion} from "/Bibliotecas/Promesas/datosFirebase.js";
 import {getFirestore, collection, onSnapshot, updateDoc, getDocs, getDoc, doc, where, addDoc, arrayUnion, query} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import * as firebase from '/Bibliotecas/Promesas/firebase.js';
-
 import * as api from "/Bibliotecas/Promesas/omdbAPI.js";
+import * as j from '/Bibliotecas/Otras/jquery-3.6.0.js';
 
 const d = document;
 /////////////////////////////////////////////////////////////////////////////////////
@@ -102,12 +102,5 @@ d.getElementById('miLista').addEventListener('click', () => {
   console.log(id);
 });
 */
-/*
-var fs = require('fs');
-var array = fs.readFileSync('/Dataset/top1500.txt').toString().split("\n");
 
-console.log(array);
-*/
-//for(i in array) {
-//    console.log(array[i]);
-//}
+//api.generarArrayRandom();

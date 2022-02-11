@@ -5,19 +5,27 @@ import * as acceso from "../Acceso/acceso.js";
 import { resetMasoquista } from "../funciones_aux.js";
 import * as api from "/Bibliotecas/Promesas/omdbAPI.js";
 import * as firebase from "/Bibliotecas/Promesas/firebase.js";
+import * as aux from '/Bibliotecas/funciones_aux.js';
 
 //Variables
 var d = document;
 var masoquista = d.getElementById("masoquista");
 var contenedorPelis;
-var contenedorPelisBusqueda;
+var bufferArray = '';
 
-export const cargarPrincipal = async (b) => {
+export const cargarPrincipal = async (films) => {
     resetMasoquista();
     masoquista.innerHTML += principal.pintarBody();
     masoquista.innerHTML += principal.pintarFooter();
     eventBtnLanding();
-    cargarPeliculasLanding(b);
+    cargarPeliculasLanding(films);
+}
+
+export const setupPrincipal = async () => {
+    if (bufferArray == '') bufferArray = await aux.textFileToArray();
+    let shortlist = aux.generar;
+    //console.log(shortlist);
+    cargarPrincipal(shortlist);
 }
 
 /*export const cargarTops = () => {

@@ -1,3 +1,4 @@
+import * as j from '/Bibliotecas/Otras/jquery-3.6.0.js';
 "use strict";
 
 var d = document;
@@ -77,3 +78,25 @@ export const botonesSinSesion = () => {
     registro.classList.remove("hidden");
     cerrarSesion.classList.add("hidden");
 };
+
+/**
+ * Devuelve un array con ids para mostrar en la página aleatoriamente.
+ */
+export const textFileToArray = async () => {
+    var array = [];
+     await $.get('/Dataset/top1500.txt', function(data){
+          array = data.split('\n');
+      });
+      console.log(array);
+      return array;
+  }
+
+export const generarShortlist = (buffer) => {
+    let shortlist = [];
+    for (let i = 0; i < 15; i++) {
+        let index = (Math.floor(Math.random() * 1499) + 1) - 1;
+        console.log(buffer[index]);
+        //shortlist[i] = buffer[index].substring(0, buffer[index].length - 2);
+    }
+    return shortlist;
+}
