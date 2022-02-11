@@ -97,6 +97,5 @@ d.getElementById('miLista').addEventListener('click', () => {
 
 d.getElementById('getUser').addEventListener('click', async () => {
   let box = d.getElementById('miListaBox');
-  let id = await firebase.getSesionId();
   console.log(id);
 });

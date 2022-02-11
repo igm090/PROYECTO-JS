@@ -200,16 +200,29 @@ export const deleteFromDocArray = async (array, elem) => {
 
 //buscar listas del usuario
 export const getVistasUser = async (idU) => {
-  const resol = await getDocs(query(vistasCol, where("idUser", "==", idU)));
-  var d;
+  const resol = await getDoc(query(vistasCol, where("idUser", "==", idU)));
+  let d;
   resol.forEach((doc) => {
     d = doc;
   })
-  console.log(doc.id);
+  return d;
 }
 export const getPendientesUser = async (idU) => {
   const resol = await getDocs(query(pendientesCol, where("idUser", "==", idU)));
-  console.log(resol);
+  let d;
+  resol.forEach((doc) => {
+    d = doc;
+  })
+  return d;
+}
+
+export const getUserByIdAuth = async (idU) => {
+  const resol = await getDocs(query(usersCol, where("idAuth", "==", idU)));
+  let d;
+  resol.forEach((doc) => {
+    d = doc;
+  })
+  return d;
 }
 
 //Recoge y prepara todos los datos del usuario (listas incuidas) 
@@ -219,6 +232,28 @@ export const getPendientesUser = async (idU) => {
 
 //borrar usuario y sus listas
 
+export const borrarUser = async () => {
+  const resol = await getDocs(query(usersCol, where('idAuth','==', idU)));
+  resol.forEach((doc) => {
+    doc.ref.delete();
+  });
+}
+export const borrarVistas = async () => {
+  const resol = await getDocs(query(vistasCol, where('idUser','==', idU)));
+  resol.forEach((doc) => {
+    doc.ref.delete();
+  });
+}
+export const borrarPendientes = async () => {
+  const resol = await getDocs(query(pendientesCol, where('idUser','==', idU)));
+  resol.forEach((doc) => {
+    doc.ref.delete();
+  });
+}
+
+export const getSesionId = () => {
+  
+}
 
 //borrar lista
 export const borrarCuenta = () => {
