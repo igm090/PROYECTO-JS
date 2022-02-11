@@ -9,6 +9,7 @@ import * as api from "/Bibliotecas/Promesas/omdbAPI.js";
 var d = document;
 var masoquista = d.getElementById("masoquista");
 var contenedorPelis;
+var contenedorPelisBusqueda;
 
 export const cargarPrincipal = async (b) => {
     resetMasoquista();
@@ -87,9 +88,9 @@ const getDatosBusqueda = () => {
 }
 
 const pintarBusqueda = (films) => {
-
+    contenedorPelisBusqueda = d.getElementById("contPeliculasBuscar");
     for (let i = 0; i < films.Search.length; i++) {
-    masoquista.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
+        contenedorPelisBusqueda.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
     }
     eventCargarPerfilPelicula();
 }

@@ -5,7 +5,7 @@
 return `   
     <div class="movie-card" id="${pelicula.imdbID}"> 
 
-		<div class="movie-header" style="background: url(${pelicula.Poster})">
+		<div class="movie-header" style="background: url(${pelicula.Poster}) no-repeat center center">
 		</div><!--movie-header-->
 
 		<div class="movie-content">
@@ -59,7 +59,7 @@ return `
                         <form method="post">
                             <div class="row">
                                <div class="col-md-4">
-                                    <div class="movie-header" style="background: url(${pelicula.Poster})">
+                                    <div class="movie-header" style="background: url(${pelicula.Poster})  no-repeat center center">
                                        
                                     </div>
                                 </div>
