@@ -13,10 +13,10 @@ const d = document;
 let idLista = "NpYBkdWvrbEEGz5oiNtS";
 let listaPruebaDoc = await firebase.getDocumento(listasCol, idLista);
 //let listaPrueba = await firebase.getDocById(listasCol, idLista);
-
+*/
 //EJEMPLO JSON
-let film = await api.getFilmById('tt0115736');
-console.log(film);
+//let film = await api.getFilmById('tt0115736');
+//console.log(film);
 
 //EJEMPLO BUSQUEDA
 //let film2 = await api.getFilmsBusqueda('in the mood for love', '');
@@ -55,12 +55,13 @@ const printFilms = (lista) => {
     });   
   }
 }
+/*
 //*******************************************************************+ */
 //*******************************************************************+ */
 
-let listaManual = ["tt0115736", "tt0118694", "tt2267998", "tt0099685", "tt0069089", "tt1392190"];
-let b = await api.getFullListaJSON(listaManual);
-console.log(b);
+//let listaManual = ["tt0115736", "tt0118694", "tt2267998", "tt0099685", "tt0069089", "tt1392190"];
+//let b = await api.getFullListaJSON(listaManual);
+//console.log(b);
 /*
 d.getElementById('asc').addEventListener('click', () => {
   console.log(api.sortMediaAsc(b));
@@ -93,3 +94,9 @@ d.getElementById('miLista').addEventListener('click', () => {
   printLista();
 });
 */
+
+d.getElementById('getUser').addEventListener('click', async () => {
+  let box = d.getElementById('miListaBox');
+  let id = await firebase.getSesionId();
+  console.log(id);
+});

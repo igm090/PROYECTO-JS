@@ -58,6 +58,8 @@ const crearUserAuth = (mail, contra) => {
         idVistas: ''
     });
     document.getElementById("formRegistro").reset();
+    crearPendientes(datos.user.uid);
+    crearVistas(datos.user.uid);
     console.log("Usuario añadido a la BD con éxito.");
 }
 
@@ -160,7 +162,7 @@ export const updateDocArray = async (array, elem) => {
 
 export const deleteFromDocArray = async (array, elem) => {
     try {
-      await updateDoc(array, {films: arrayUnion(elem),});
+      await updateDoc(array, {films: arrayRemove(elem),});
       console.log(`Elemento eliminado de la lista ${array.id}`);
     } catch (error) {console.log(error);}
 }
@@ -181,11 +183,6 @@ export const crearPendientes = async (idU) => {
     console.log("Lista 'pendientes' creada con éxito.");
 }
 
-//mete id listas en user
-export const updateListasUser = async (idU) => {
-    
-}
-
 //buscar listas del usuario
 export const getVistasUser = async (idU) => {
   const resol = await getDocs(query(vistasCol, where("IdUser", "==", idU)));
@@ -197,6 +194,16 @@ export const getPendientesUser = async (idU) => {
 }
 
 //Recoge y prepara todos los datos del usuario (listas incuidas) 
-export const getEverything = async () => {
-  console.log("Datos del usuario cargados con éxito.");
+//export const getEverything = async () => {
+//  console.log("Datos del usuario cargados con éxito.");
+//}
+
+//borrar usuario y sus listas
+
+
+//borrar lista
+export const borrarCuenta = () => {
+  let userId = getSesionId();
+  let vistas = getVistasUser(userId);
+  let pendientes = getPendientesUser(userId);
 }
