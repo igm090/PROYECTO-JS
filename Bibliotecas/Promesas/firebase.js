@@ -11,7 +11,7 @@ const pendientesCol = collection(getFirestore(app), "pendientes");
 //Variables
 var d = document;
 var idSesion = d.getElementsByTagName("li")[0];
-var nombreSesion = d.getElementsByTagName("li")[0].firstChild;
+//var nombreSesion = d.getElementsByTagName("li")[0].firstChild;
 
 /**
  * Comprueba el form, si está bien crea el user.
@@ -117,7 +117,7 @@ const recogerUserBD = async (uid) => {
 
 
 const manejarSesion = (nomDisplay, uid) => {
-    nombreSesion.innerHTML = "Hola, " + nomDisplay;
+    d.getElementsByTagName("li")[0].firstChild.innerHTML = "Hola, " + nomDisplay;
     idSesion.id = uid;
     cargarPrincipal();
 };
@@ -139,7 +139,7 @@ export const cerrarSesion = () => {
     autentificacion
       .signOut()
       .then(() => {
-        nombreSesion.innerHTML = "";
+        d.getElementsByTagName("li")[0].firstChild.innerHTML = "";
         console.log("Sesión cerrada.");
         cargarPrincipal();
       })

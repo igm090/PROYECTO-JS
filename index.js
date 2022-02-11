@@ -1,9 +1,11 @@
-"use strict";
-import * as principal from "./Bibliotecas/Funciones/principal.js";
-import * as acceso from "./Bibliotecas/Acceso/acceso.js";
-import * as firebase from "./Bibliotecas/Promesas/firebase.js"
+import * as principal from "/Bibliotecas/Funciones/principal.js";
+import * as acceso from "/Bibliotecas/Acceso/acceso.js";
+import * as firebase from "/Bibliotecas/Promesas/firebase.js"
 import * as api from "/Bibliotecas/Promesas/omdbAPI.js";
-import {cargarPerfil} from "./Bibliotecas/Funciones/perfil.js";
+import {cargarPerfil} from "/Bibliotecas/Funciones/perfil.js";
+import * as aux from "/Bibliotecas/funciones_aux.js";
+
+"use strict";
 
 //var cuerpazo = document.getElementById("cuerpazo");
 
@@ -11,27 +13,15 @@ window.onload = () => {
 
 var d = document;
 
-var listaManual = ["tt0115736", "tt0118694", "tt2267998", "tt0099685", "tt0069089", "tt1392190"];
-
-
 /********** Nada más cargar **********/
-const funcPrincipal = async () => {
-    var b = await api.getFullListaJSON(listaManual);
-    principal.cargarPrincipal(b);
-}
-
-funcPrincipal();
+principal.setupPrincipal();
 
 /********** Cabecera Listeners **********/
 //Inicio
-d.getElementById("inicio").addEventListener("click", principal.cargarPrincipal);
+d.getElementById("inicio").addEventListener("click", principal.setupPrincipal);
 
 //Tops
 //d.getElementById("topGenerico").addEventListener("click", principal.cargarTops);
-
-
-
-
 
 //Perfil
 d.getElementById("perfil").addEventListener("click", cargarPerfil);
@@ -46,7 +36,7 @@ d.getElementById("registro").addEventListener("click", acceso.cargarRegistro);
 d.getElementById("cerrarSesion").addEventListener("click", firebase.cerrarSesion);
 
 //Logo Cabecera.
-d.getElementById("logoCabecera").addEventListener("click", principal.cargarPrincipal);
+d.getElementById("logoCabecera").addEventListener("click", principal.setupPrincipal);
 
 //Buscar Pelicula.
 d.getElementById("buscarPelicula").addEventListener("click", principal.cargarBuscar);
