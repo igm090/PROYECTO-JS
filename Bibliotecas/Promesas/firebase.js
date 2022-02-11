@@ -252,7 +252,7 @@ export const borrarPendientes = async () => {
 }
 
 export const getSesionId = () => {
-  
+
 }
 
 //borrar lista

@@ -12,7 +12,6 @@ window.onload = () => {
 var d = document;
 
 var listaManual = ["tt0115736", "tt0118694", "tt2267998", "tt0099685", "tt0069089", "tt1392190"];
-var idSesion = d.getElementsByTagName('li')[0];
 
 
 /********** Nada más cargar **********/
@@ -45,8 +44,8 @@ d.getElementById("cerrarSesion").addEventListener("click", firebase.cerrarSesion
 d.getElementById("logoCabecera").addEventListener("click", principal.cargarPrincipal);
 
 //Buscar Pelicula.
-d.getElementById("buscarPelicula").addEventListener("click", async () => {
-    
-});
+d.getElementById("buscarPelicula").addEventListener("click", principal.cargarBuscar);
 
 }
+
+
