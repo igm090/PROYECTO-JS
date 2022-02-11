@@ -31,9 +31,6 @@ d.getElementById("topGenerico").addEventListener("click", async () => {
 //Perfil
 d.getElementById("perfil").addEventListener("click", cargarPerfil);
 
-//Contactos
-d.getElementById("contacto").addEventListener("click", principal.cargarContacto);
-
 //Login
 d.getElementById("login").addEventListener("click", acceso.cargarLogin);
 
@@ -43,5 +40,7 @@ d.getElementById("registro").addEventListener("click", acceso.cargarRegistro);
 //Cerrar Sesión
 d.getElementById("cerrarSesion").addEventListener("click", firebase.cerrarSesion);
 
+//Logo Cabecera.
+d.getElementById("logoCabecera").addEventListener("click", principal.cargarPrincipal);
 
 }

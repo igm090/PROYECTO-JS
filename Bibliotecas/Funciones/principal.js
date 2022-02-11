@@ -16,11 +16,6 @@ export const cargarPrincipal = async () => {
     eventBtnLanding();
 }
 
-export const cargarContacto = () => {
-    resetMasoquista();
-    masoquista.innerHTML += principal.pintarContacto();
-}
-
 /*export const cargarTops = () => {
     resetMasoquista();
     masoquista.innerHTML += principal.pintarTopGenerico();
@@ -37,9 +32,9 @@ export const cargarPeliculasLanding = (b) => {
 
 }
 //*****//
-export const cargarPerfilPelicula = () => {
+export const cargarPerfilPelicula = (pelicula) => {
     resetMasoquista();
-    masoquista.innerHTML += peliculas.perfilPelicula();
+    masoquista.innerHTML += peliculas.perfilPelicula(pelicula);
     masoquista.innerHTML += principal.pintarFooter();
 }
 

@@ -48,17 +48,39 @@ const crearUserAuth = (mail, contra) => {
  */
  export const crearUserBd = async (datos) => {
     var nombre = aux.getNombreUser();
+    let uid = datos.user.uid;
 
     await addDoc(usersCol, {
         nomDisplay: nombre,
         nomMail: datos.user.email,
-        idAuth: datos.user.uid,
+        idAuth: uid,
         favoritos: [],
         idPendientes: '',
         idVistas: ''
     });
     document.getElementById("formRegistro").reset();
     console.log("Usuario añadido a la BD con éxito.");
+    //Llamamos para crear sus litas.
+    crearVistas(uid);
+    crearPendientes(uid);
+    console.log("llamamos a la lista");
+    getVistasUser(uid);
+}
+
+export const crearVistas = async (idU) => {
+  await addDoc(vistasCol, {
+      films: [],
+      idUser: idU
+  });
+  console.log("Lista 'vistas' creada con éxito.");
+}
+
+export const crearPendientes = async (idU) => {
+  await addDoc(pendientesCol, {
+      films: [],
+      idUser: idU
+  });
+  console.log("Lista 'pendientes' creada con éxito.");
 }
 
 /**
@@ -99,8 +121,10 @@ const manejarSesion = (nomDisplay) => {
 //Comprobamos el estado de la sesión en cuanto cambia.
 onAuthStateChanged(autentificacion, (usuario) => {
     if (usuario) {
-      console.log("el uid del usuario " + usuario.uid);
+      aux.botonesConSesion();
+      console.log("Usuario conectado:" + usuario.uid);
     } else {
+      aux.botonesSinSesion();
       console.log("No se ha iniciado sesión");
     }
   });
@@ -110,14 +134,17 @@ export const cerrarSesion = () => {
     autentificacion
       .signOut()
       .then(() => {
-        nomSesion.innerHTML =
-          "¡Bienvenido! Indentifícate D:";
-        console.log("Salir");
+        nomSesion.innerHTML = "";
+        console.log("Sesión cerrada.");
+        cargarPrincipal();
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+
+
 
 /*************ABAJO SIN USAR DE MOMENTO**********/
 /**
@@ -165,21 +192,7 @@ export const deleteFromDocArray = async (array, elem) => {
     } catch (error) {console.log(error);}
 }
 
-export const crearVistas = async (idU) => {
-    await addDoc(vistasCol, {
-        films: [],
-        idUser: idU
-    });
-    console.log("Lista 'vistas' creada con éxito.");
-}
 
-export const crearPendientes = async (idU) => {
-    await addDoc(pendientesCol, {
-        films: [],
-        idUser: idU
-    });
-    console.log("Lista 'pendientes' creada con éxito.");
-}
 
 //mete id listas en user
 export const updateListasUser = async (idU) => {
@@ -188,12 +201,16 @@ export const updateListasUser = async (idU) => {
 
 //buscar listas del usuario
 export const getVistasUser = async (idU) => {
-  const resol = await getDocs( query(vistasCol, where("IdUser", "==", idU)));
-  return resol;
+  const resol = await getDocs(query(vistasCol, where("idUser", "==", idU)));
+  var d;
+  resol.forEach((doc) => {
+    d = doc;
+  })
+  console.log(doc.id);
 }
 export const getPendientesUser = async (idU) => {
-  const resol = await getDocs(query(pendientesCol, where("IdUser", "==", idU)));
-  return resol;
+  const resol = await getDocs(query(pendientesCol, where("idUser", "==", idU)));
+  console.log(resol);
 }
 
 //Recoge y prepara todos los datos del usuario (listas incuidas) 

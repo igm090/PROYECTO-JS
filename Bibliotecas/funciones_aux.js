@@ -1,6 +1,13 @@
 "use strict";
 
 var d = document;
+
+var perfil = document.getElementById("perfil");
+var login = document.getElementById("login");
+var registro = document.getElementById("registro");
+var cerrarSesion = document.getElementById("cerrarSesion");
+
+
 /**
  * Vacía la página (menos header), para luego poder pintar dentro.
  */
@@ -53,4 +60,20 @@ const emailValido = (string) => {
 export const getNombreUser = () => {
     var nombre = document.getElementById("nomRegistro").value;
     return nombre;
+};
+
+
+//Funciones de ocultar o mostrar botones con la sesión.
+export const botonesConSesion = () => {
+    perfil.classList.remove("hidden");
+    login.classList.add("hidden");
+    registro.classList.add("hidden");
+    cerrarSesion.classList.remove("hidden");
+};
+
+export const botonesSinSesion = () => {
+    perfil.classList.add("hidden");
+    login.classList.remove("hidden");
+    registro.classList.remove("hidden");
+    cerrarSesion.classList.add("hidden");
 };
