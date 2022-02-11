@@ -97,9 +97,9 @@ const getDatosBusqueda = () => {
 }
 
 const pintarBusqueda = (films) => {
-
+    contenedorPelisBusqueda = d.getElementById("contPeliculasBuscar");
     for (let i = 0; i < films.Search.length; i++) {
-    masoquista.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
+        contenedorPelisBusqueda.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
     }
     eventCargarPerfilPelicula();
 }

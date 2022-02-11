@@ -6,7 +6,7 @@ export const pintarBody = () => {
     <div class="landing-text">
         <div id="celdita">
         <h1>PAPRIKA STUDIOS'</h1>
-        <h2>Film database</h2>
+        <h2 id="estData">Film database</h2>
         <h3>Donde se recogen las películas más spicy.</h3>
         <a href="#" id="btnLanding" class="btn btn-default btn-lg">Regístrate</a> 
         </div>
@@ -20,7 +20,7 @@ export const pintarBody = () => {
             <img class="spice" src="media/logo.png">
         </div>
         <div class="col-sm-6 text-center">
-            <h2>Paprika Spice</h2>
+            <h3>Paprika Spice</h3>
             <p class="lead"> Ese sentimiento de alivio cuando los buenos ganan, esa despedida amarga cuando los amantes tienen
             que separarse en el camino, la diversión cuando te metes de lleno en aventuras fantásticas, todo eso es ¡La Paprika Spice!
             Ese el nivel del sabor inolvidable que sientes cuando una película que te marca.</p>
@@ -150,7 +150,29 @@ export const pintarTopGenerico = () => {
 
 export const pintarBuscar = () => {
     return `
-        <input type="text" id='barrab' />
-        <input type="text" id='anyob' />
-        <input type="button" value="buscar" id='buscar' />
-    </form>`}
+
+    <div class="padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>¡Busca las películas que quieras!</h3>
+                <p>Desde clásicos del cine hasta películas recién salidas del horno. Puedes buscar la película que
+                más se te antoje, ¡y no solo eso!</p>
+                <p>¿No estás seguro de cómo se llamaba esa película de tu infancia? Pon solo una palabra en el buscador
+                y nosotros nos encargamos de encontrar las más similares. Quién sabe, puede que encuentres que tiene una
+                secuela de la que nunca habías oído hablar. 
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <input type="text" id='barrab'placeholder="Nombre Película" />
+                    <input type="text" id='anyob' placeholder="Año (opcional)"/>
+                    <input class="btn btn-outline-primary" type="button" value="buscar" id='buscar' />
+                </div>
+            </div>
+        </div>
+        <div class="row" id="contPeliculasBuscar">
+        </div>
+    </div>
+    </div>
+
+    `}

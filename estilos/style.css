@@ -8,6 +8,10 @@ html, body, #masoquista{
     margin-top: 76px;
 }
 
+.row p{
+    font-size: 20px;
+}
+
 .navbar {
     background-color: white;
     padding: 10px;
@@ -64,6 +68,11 @@ html, body, #masoquista{
     margin: 0px;
 }
 
+h3{
+    font-weight: bold;
+    font-size: 22px;
+}
+
 #home h3{
     color: black;
     padding: 5px 0px;
@@ -117,7 +126,7 @@ html, body, #masoquista{
 footer{
     width: 100%;
     background-color: white;
-    padding: 5% 5% 10% 5%;
+    padding: 5% 5% 5% 5%;
     color: #e51b23;
 }
 
@@ -252,6 +261,7 @@ footer{
   background: #ffffff;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
   width: 100%;
+  min-width: 315px;
   max-width: 315px;
   margin: 2em;
   border-radius: 10px;
@@ -264,19 +274,7 @@ footer{
   height: 367px;
   width: 100%;
   display: block;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-
   background-size: cover;
-
-}
-
-/*.manOfSteel {
-  background: url("http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg");
-  background-size: cover;
-}*/
-
-.header-icon-container {
   position: relative;
 }
 
@@ -308,7 +306,16 @@ footer{
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+.movie-header img{
+    position: absolute; 
+    bottom: -50px;
+    right:-50px;
+    width: 200px;
+    /*filter: drop-shadow(1px 1px 4px black);*/
+}
+
 .movie-content {
+  max-height: 114px;
   padding: 18px 18px 24px 18px;
   margin: 0;
 }

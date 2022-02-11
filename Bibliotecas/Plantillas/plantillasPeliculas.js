@@ -5,7 +5,7 @@
 return `   
     <div class="movie-card" id="${pelicula.imdbID}"> 
 
-		<div class="movie-header" style="background: url(${pelicula.Poster})">
+		<div class="movie-header" style="background: url(${pelicula.Poster}) no-repeat center center">
 		</div><!--movie-header-->
 
 		<div class="movie-content">
@@ -38,6 +38,7 @@ return `
             <div class="movie-card" id="${pelicula.imdbID}"> 
         
                 <div class="movie-header" style="background: url(${pelicula.Poster})">
+                    <img src="media/sello2.png" alt="Sello Paprika">
                 </div><!--movie-header-->
         
                 <div class="movie-content">
@@ -45,11 +46,7 @@ return `
                         <a href="#">
                             <h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
                         </a>
-                        <div class="paprika-logo"></div>
                     </div>
-                    <div class="movie-info">
-                    </div>
-                </div><!--movie-content-->
             </div><!--movie-card-->`
             };
 
@@ -59,7 +56,7 @@ return `
                         <form method="post">
                             <div class="row">
                                <div class="col-md-4">
-                                    <div class="movie-header" style="background: url(${pelicula.Poster})">
+                                    <div class="movie-header" style="background: url(${pelicula.Poster})  no-repeat center center">
                                        
                                     </div>
                                 </div>
