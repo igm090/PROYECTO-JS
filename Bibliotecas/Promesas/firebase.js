@@ -188,7 +188,7 @@ export const updateListasUser = async (idU) => {
 
 //buscar listas del usuario
 export const getVistasUser = async (idU) => {
-  const resol = await getDocs( query(vistasCol, where("IdUser", "==", idU)));
+  const resol = await getDocs(query(vistasCol, where("IdUser", "==", idU)));
   return resol;
 }
 export const getPendientesUser = async (idU) => {
