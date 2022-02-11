@@ -42,5 +42,3 @@ d.getElementById("logoCabecera").addEventListener("click", principal.setupPrinci
 d.getElementById("buscarPelicula").addEventListener("click", principal.cargarBuscar);
 
 }
-
-

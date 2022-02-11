@@ -91,12 +91,17 @@ export const textFileToArray = async () => {
       return array;
   }
 
+/**
+ * Genera un array con el top 500 más populares de IMDb 
+ * (los 1500 índices del txt no se usan. Muchos de los resultados tienen uns popularidad muy baja. 
+ * Esto hace que 1. Las películas que se muestran no sean reconocibles por el usuario y 
+ * 2. no tengan nota, lo que genera un error en getMediaPaprika())
+ */
 export const generarShortlist = (buffer) => {
     let shortlist = [];
     for (let i = 0; i < 15; i++) {
-        let index = (Math.floor(Math.random() * 1499) + 1) - 1;
-        console.log(buffer[index]);
-        //shortlist[i] = buffer[index].substring(0, buffer[index].length - 2);
+        let index = (Math.floor(Math.random() * 500) + 1) - 1;
+        shortlist[i] = buffer[index].substring(0, buffer[index].length - 1);
     }
     return shortlist;
 }

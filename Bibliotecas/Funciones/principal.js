@@ -23,8 +23,9 @@ export const cargarPrincipal = async (films) => {
 
 export const setupPrincipal = async () => {
     if (bufferArray == '') bufferArray = await aux.textFileToArray();
-    let shortlist = aux.generar;
-    //console.log(shortlist);
+    let shortlist = aux.generarShortlist(bufferArray);
+    shortlist = await api.getFullListaJSON(shortlist);
+    console.log(shortlist);
     cargarPrincipal(shortlist);
 }
 
@@ -34,15 +35,14 @@ export const setupPrincipal = async () => {
     masoquista.innerHTML += principal.pintarFooter();
 }*/
 
-export const cargarPeliculasLanding = (b) => {
+export const cargarPeliculasLanding = (films) => {
     contenedorPelis = d.getElementById("contPeliculas");
 
-    for (let i = 0; i < b.length; i++) {
-        contenedorPelis.innerHTML += peliculas.pintarPeliculasLanding(b[i]);
+    for (let i = 0; i < films.length; i++) {
+        contenedorPelis.innerHTML += peliculas.pintarPeliculasLanding(films[i]);
     }
     eventCargarPerfilPelicula();
     //masoquista.innerHTML += principal.pintarFooter();
-
 }
 //*****//
 export const cargarPerfilPelicula = (pelicula) => {
