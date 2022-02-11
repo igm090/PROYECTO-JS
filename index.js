@@ -15,7 +15,12 @@ var listaManual = ["tt0115736", "tt0118694", "tt2267998", "tt0099685", "tt006908
 
 
 /********** Nada más cargar **********/
-principal.cargarPrincipal();
+const funcPrincipal = async () => {
+    var b = await api.getFullListaJSON(listaManual);
+    principal.cargarPrincipal(b);
+}
+
+funcPrincipal();
 
 /********** Cabecera Listeners **********/
 //Inicio
@@ -23,10 +28,10 @@ d.getElementById("inicio").addEventListener("click", principal.cargarPrincipal);
 
 //Tops
 //d.getElementById("topGenerico").addEventListener("click", principal.cargarTops);
-d.getElementById("topGenerico").addEventListener("click", async () => {
-    var b = await api.getFullListaJSON(listaManual);
-    principal.cargarPeliculasLanding(b);
-});
+
+
+
+
 
 //Perfil
 d.getElementById("perfil").addEventListener("click", cargarPerfil);

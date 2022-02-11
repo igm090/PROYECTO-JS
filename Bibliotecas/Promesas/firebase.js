@@ -128,6 +128,7 @@ onAuthStateChanged(autentificacion, (usuario) => {
       aux.botonesConSesion();
       console.log("Usuario conectado:" + usuario.uid);
     } else {
+      cerrarSesion();
       aux.botonesSinSesion();
       console.log("No se ha iniciado sesión");
     }
