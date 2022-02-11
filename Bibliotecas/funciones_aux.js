@@ -99,7 +99,7 @@ export const textFileToArray = async () => {
  */
 export const generarShortlist = (buffer) => {
     let shortlist = [];
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 4; i++) {
         let index = (Math.floor(Math.random() * 500) + 1) - 1;
         shortlist[i] = buffer[index].substring(0, buffer[index].length - 1);
     }
