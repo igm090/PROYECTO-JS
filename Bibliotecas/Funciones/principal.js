@@ -4,6 +4,7 @@ import * as peliculas from "../Plantillas/plantillasPeliculas.js";
 import * as acceso from "../Acceso/acceso.js";
 import { resetMasoquista } from "../funciones_aux.js";
 
+
 //Variables
 var d = document;
 var masoquista = d.getElementById("masoquista");
@@ -25,9 +26,12 @@ export const cargarContacto = () => {
     masoquista.innerHTML += principal.pintarTopGenerico();
     masoquista.innerHTML += principal.pintarFooter();
 }*/
-export const cargarPeliculasLanding = () => {
+
+export const cargarPeliculasLanding = (b) => {
     resetMasoquista();
-    masoquista.innerHTML += peliculas.cargarPeliculasLanding();
+    for (let i = 0; i < b.length; i++) {
+        masoquista.innerHTML += peliculas.cargarPeliculasLanding(b[i]);
+    }
     //masoquista.innerHTML += principal.pintarFooter();
     eventCargarPerfilPelicula();
 

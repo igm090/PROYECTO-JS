@@ -193,8 +193,7 @@ export const perfilPelicula = () => {
  */
 
 
-    export const cargarPeliculasLanding = (idPelicula, posterPelicula, tituloPelicula,
-        anyoPelicula, generoPelicula, notaPaprika) => {
+    export const cargarPeliculasLanding = (pelicula) => {
 
 return `   
     <div class="movie-card">
@@ -231,30 +230,30 @@ return `
 	</div><!--movie-card-->
 
 
-    <div class="movie-card" ${idPelicula}> 
+    <div class="movie-card" ${pelicula.imdbID}> 
 
-		<div class="movie-header ${posterPelicula}">
+		<div class="movie-header ${pelicula.Poster}">
 		</div><!--movie-header-->
 
 		<div class="movie-content">
 			<div class="movie-content-header">
 				<a href="#">
-					<h3 class="movie-title">${tituloPelicula}</h3>
+					<h3 class="movie-title">${pelicula.Title}</h3>
 				</a>
 				<div class="paprika-logo"></div>
 			</div>
 			<div class="movie-info">
 				<div class="info-section">
 					<label>Fecha de estreno</label>
-					<span>${anyoPelicula}</span>
+					<span>${pelicula.Date}</span>
 				</div>
 				<div class="info-section">
 					<label>Género</label>
-					<span>${generoPelicula}</span>
+					<span>${pelicula.Genre}</span>
 				</div>
 				<div class="info-section">
 					<label>Nota Paprika</label>
-					<span>${notaPaprika}</span>
+					<span>${pelicula.mediaPaprika}</span>
 				</div>
 			</div>
 		</div><!--movie-content-->
