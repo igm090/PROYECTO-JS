@@ -89,46 +89,68 @@ export const pintarListaPendientes = (pelicula) => {
     return `   
         <div class="movie-card" id="${pelicula.imdbID}"> 
     
-            <div class="movie-header" style="background: url(${pelicula.Poster})">
-                <img src="media/sello2.png" alt="Sello Paprika">
+            <div class="movie-header" style="background: url(${pelicula.Poster}) no-repeat center center">
+                <img src="css/media/sello2.png" alt="Sello Paprika">
             </div><!--movie-header-->
-    
+
             <div class="movie-content">
                 <div class="movie-content-header">
-                    <a href="#">
-                        <h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
-                    </a>
-                    <input type="button" value="Eliminar"/>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a href="#">
+                                <h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
+                            </a>
+                        </div>
+                    </div>
+                <div class="movie-info">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="info-section">
+                                <input type="button" value="Vista"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="info-section">
+                                <input type="button" value="Eliminar"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </div><!--movie-card-->`
+		    </div>
+        </div>`
 };
 
 //año, alfabetico, media paprika. search genero
 export const pintarMenuListas = () => {
     return `
-        <div>
-            <form>
-            <div></div>
-                <input type='text' id='genBusqueda' placeholder='Filtrar por género' /> 
-                <input type='button' id='btnGenBusqueda' value='Filtrar' />
-
-                <select id='selectOrdenar'>
-                    <option value='none' selected>Ordenar lista</option>
-                    <optgroup label='Afabético' >
-                        <option value='A-asc'>Asc.</option>
-                        <option value='A-desc'>Desc.</option>
-                    </optgroup>
-                    <optgroup label='Fecha de estreno' >
-                        <option value='Y-asc'>Asc.</option>
-                        <option value='Y-desc'>Desc.</option>
-                    </optgroup>
-                    <optgroup label='Spicy level' >
-                        <option value='P-asc'>Asc.</option>
-                        <option value='P-desc'>Desc.</option>
-                    </optgroup> 
-                </select>
-                <input type='button' value='Ordenar' id='btnOrdenar' />
-            </form>
+    <div class="padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <input type='text' id='genBusqueda' placeholder='Filtrar por género' /> 
+                    <input type='button' id='btnGenBusqueda' value='Filtrar' />
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <select id='selectOrdenar'>
+                        <option value='none' selected>Ordenar lista</option>
+                        <optgroup label='Afabético' >
+                            <option value='A-asc'>Asc.</option>
+                            <option value='A-desc'>Desc.</option>
+                        </optgroup>
+                        <optgroup label='Fecha de estreno' >
+                            <option value='Y-asc'>Asc.</option>
+                            <option value='Y-desc'>Desc.</option>
+                        </optgroup>
+                        <optgroup label='Spicy level' >
+                            <option value='P-asc'>Asc.</option>
+                            <option value='P-desc'>Desc.</option>
+                        </optgroup> 
+                    </select>
+                    <input type='button' value='Ordenar' id='btnOrdenar' />
+                </div>
+            </div>
         </div>
+    </div>
     `;
 }

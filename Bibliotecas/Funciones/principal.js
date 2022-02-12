@@ -63,7 +63,7 @@ const eventBtnLanding = () => {
 }
 
 //Evento Cargar perfil de una película
-const eventCargarPerfilPelicula = async (films) => {
+export const eventCargarPerfilPelicula = async (films) => {
     var arrayPeliculas = d.getElementsByClassName("movie-title");
     for (let i = 0; i < films.length; i++) {
         arrayPeliculas[i].addEventListener("click", () =>{
