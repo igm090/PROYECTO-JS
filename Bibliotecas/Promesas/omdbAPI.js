@@ -6,7 +6,7 @@
  *  url data requests http://www.omdbapi.com/?apikey=1d78ab91&
  */
 
-const apiKey = "&apikey=1389c9e"; //añadir al final de cada url
+const apiKey = "&apikey=32fc8355"; //añadir al final de cada url
 const url = "http://www.omdbapi.com/?";
 
 //getFilm (todo)

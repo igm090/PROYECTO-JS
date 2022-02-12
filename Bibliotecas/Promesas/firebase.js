@@ -14,6 +14,16 @@ var idSesion = d.getElementsByTagName("li")[0];
 var uidSesion;
 //var nombreSesion = d.getElementsByTagName("li")[0].firstChild;
 
+
+export const getUsersCol = () => {
+  return usersCol;
+}
+export const getVistasCol = () => {
+  return vistasCol;
+}
+export const getPendientesCol = () => {
+  return pendientesCol;
+}
 /**
  * Comprueba el form, si está bien crea el user.
  */
@@ -258,6 +268,7 @@ export const getSesionId = () => {
   return uidSesion;
 }
 
+/* No puede funcionar sin SDK admin
 export const borrarUserAuth = (uid) => {
   deleteUser(uid).then(() => {
     console.log('Usuario eliminado con éxito.');
@@ -265,6 +276,7 @@ export const borrarUserAuth = (uid) => {
     console.log('Error al eliminar usuario:', error);
   });
 }
+*/
 
 //borrar lista
 export const borrarCuenta = async () => {
@@ -274,7 +286,7 @@ export const borrarCuenta = async () => {
   let pendientes = await getPendientesUser(userId);
   await borrarPendientes(pendientes);
   await getBorrarUser(userId);
-  borrarUserAuth(userId);
+  //borrarUserAuth(userId);
 }
 
 //******************* */
