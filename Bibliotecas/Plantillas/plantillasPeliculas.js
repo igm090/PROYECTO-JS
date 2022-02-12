@@ -102,10 +102,7 @@ return `
                             
                             <div class="tab-pane show active" id="sinopsis" role="tabpanel" aria-labelledby="sinopsis-tab">
                                 <div class="row">
-                                    <div class="col-md-2">
-                                        <label>Sinopsis</label>
-                                    </div>
-                                    <div class="col-md-10">
+                                    <div class="col-md-12">
                                         <p id="plotPerfP">${pelicula.Plot}</p>
                                     </div>
                                 </div>
@@ -138,7 +135,7 @@ return `
                                     </div>
                         </div>
             
-                        <div class="tab-pane" id="actores" role="tabpanel" aria-labelledby="actores-tab">
+                                <div class="tab-pane" id="actores" role="tabpanel" aria-labelledby="actores-tab">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Directores:</label>
@@ -164,6 +161,7 @@ return `
                                         </div>
                                     </div>
                                 </div>
+                                <hr>
                             </div>
                         </div>
             
@@ -175,14 +173,15 @@ return `
                             </select>
                             <input id='btnAnyadir' type="button" class="profile-edit-btn" name="btnAnyadir" value="Añadir a lista"/>
                         </div>
+                        <hr>
                     </div>
             
                     <div class="row">
-                        <div class="col-md-6 offset-md-6 id="grupPerfP">
+                        <div class="col-md-6 offset-md-6" id="grupPerfP">
                             <p>País</p>
-                            <a href="">${pelicula.Country}</a><br/>
+                            <p class="blue">${pelicula.Country}<p>
                             <p>Premios</p>
-                            <a href="">${pelicula.Awards}</a><br/>
+                            <p class="blue">${pelicula.Awards}</p>
                         </div>
                         <div class="col-md-6 offset-md-6"></div>
                     </div>  

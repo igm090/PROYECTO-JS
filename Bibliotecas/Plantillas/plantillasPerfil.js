@@ -128,7 +128,7 @@ export const pintarListaPendientes = (pelicula) => {
                         </div>
                         <div class="col-sm-6">
                             <div class="info-section">
-                                <input type="button" value="Eliminar"/>
+                                <input type="button" value="Eliminar" class='btnEliminar' />
                             </div>
                         </div>
                     </div>

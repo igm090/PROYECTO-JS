@@ -246,7 +246,7 @@ footer{
 }
 .profile-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:2px solid #0062cc;
+    border-bottom:2px solid #333;
 }
 .profile-work{
     padding: 8%;
@@ -271,12 +271,11 @@ footer{
     font-weight: 600;
 }
 .profile-tab p{
-    font-weight: 600;
-    color: #0062cc;
+    color: #333;
 }
 
 #titPerfP{
-    font-size: 2m;
+    font-size: 50px;
     color: #e51b23;
 } 
 
@@ -285,7 +284,7 @@ footer{
 }
 
 #puntPerfP {
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #e51b23;
 }
 
@@ -295,9 +294,15 @@ footer{
 }
 
 #grupPerfP {
-    margin: 5px 0 4px 10px;
+    margin: 5px 0 4px 30px;
 }
 
+#grupPerfP p{
+    font-weight: bold;
+}
+.blue{
+    color: #23527c ;
+}
 /*PELICULAS LANDING*/
 .movie-card {
   background: #ffffff;

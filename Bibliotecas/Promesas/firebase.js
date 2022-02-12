@@ -1,6 +1,6 @@
 import {app, autentificacion} from "./datosFirebase.js";
 import {getFirestore, collection, onSnapshot, updateDoc, getDocs, deleteDoc, getDoc, doc, where, addDoc, arrayUnion, query} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, deleteUser, } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import * as aux from "../funciones_aux.js";
 import {setupPrincipal} from "../Funciones/principal.js"
 
@@ -11,8 +11,19 @@ const pendientesCol = collection(getFirestore(app), "pendientes");
 //Variables
 var d = document;
 var idSesion = d.getElementsByTagName("li")[0];
+var uidSesion;
 //var nombreSesion = d.getElementsByTagName("li")[0].firstChild;
 
+
+export const getUsersCol = () => {
+  return usersCol;
+}
+export const getVistasCol = () => {
+  return vistasCol;
+}
+export const getPendientesCol = () => {
+  return pendientesCol;
+}
 /**
  * Comprueba el form, si está bien crea el user.
  */
@@ -63,7 +74,7 @@ const crearUserAuth = (mail, contra) => {
     //Llamamos para crear sus litas.
     crearVistas(uid);
     crearPendientes(uid);
-    setupPrincipal();
+    cerrarSesion();
 }
 
 export const crearVistas = async (idU) => {
@@ -123,9 +134,8 @@ onAuthStateChanged(autentificacion, (usuario) => {
     if (usuario) {
       aux.botonesConSesion();
       console.log("Usuario conectado:" + usuario.uid);
+      uidSesion = usuario.uid;
     } else {
-      console.log("auth");
-      //cerrarSesion();
       setupPrincipal();
       aux.botonesSinSesion();
       console.log("No se ha iniciado sesión");
@@ -138,6 +148,7 @@ export const cerrarSesion = () => {
       .signOut()
       .then(() => {
         d.getElementsByTagName("li")[0].firstChild.innerHTML = "";
+        uidSesion = null;
         console.log("Sesión cerrada.");
       })
       .catch((error) => {
@@ -145,10 +156,6 @@ export const cerrarSesion = () => {
       });
   };
 
-
-
-
-/*************ABAJO SIN USAR DE MOMENTO**********/
 /**
  * Devuelve todos los documentos de una coleccion
  */
@@ -237,46 +244,48 @@ export const getBorrarUser = async (idU) => {
 }
 
 export const borrarUser = async (doc) => {
-  /*console.log("voy a imprimir doc.id");
-  console.log(doc.id);
-  console.log("voy a imprimir doc");
-  console.log(doc);*/
-  let documento = await getDocumento(usersCol, doc.id);
-  console.log("voy a imprimir doc");
-  console.log(documento);
-  console.log("voy a imprimir doc.id");
-  console.log(documento.id);
-  try {
-    await deleteDoc(doc(usersCol, documento.id));
-    console.log("usuario borrado con éxito");
-  } catch {
-    console.log("Error borrando user");
-  }
+  let docUno = await getDocumento(usersCol, doc.id);
+  let docDos = await getDocumento(usersCol, docUno.id);
+  await deleteDoc(docDos);
+  console.log("Usuario eliminado de la base de datos.");
 }
 
-export const borrarVistas = async (idU) => {
-  const resol = await query(vistasCol, where('idUser','==', idU));
-  resol.forEach((doc) => {
-    doc.delete();
-  });
+export const borrarVistas = async (doc) => {
+  let docUno = await getDocumento(vistasCol, doc.id);
+  let docDos = await getDocumento(vistasCol, docUno.id);
+  await deleteDoc(docDos);
+  console.log("Lista vistas eliminada de la base de datos.");
 }
-export const borrarPendientes = async (idU) => {
-  const resol = await query(pendientesCol, where('idUser','==', idU));
-  resol.forEach((doc) => {
-    doc.delete();
-  });
+export const borrarPendientes = async (doc) => {
+  let docUno = await getDocumento(pendientesCol, doc.id);
+  let docDos = await getDocumento(pendientesCol, docUno.id);
+  await deleteDoc(docDos);
+  console.log("Lista pendientes eliminada de la base de datos.");
 }
 
 export const getSesionId = () => {
-  return d.getElementsByTagName('li')[0].id;
+  return uidSesion;
 }
 
+/* No puede funcionar sin SDK admin
+export const borrarUserAuth = (uid) => {
+  deleteUser(uid).then(() => {
+    console.log('Usuario eliminado con éxito.');
+  }).catch((error) => {
+    console.log('Error al eliminar usuario:', error);
+  });
+}
+*/
+
 //borrar lista
-export const borrarCuenta = () => {
+export const borrarCuenta = async () => {
   let userId = getSesionId();
-  getBorrarUser(userId);
-  //let vistas = getVistasUser(userId);
-  //let pendientes = getPendientesUser(userId)
+  let vistas = await getVistasUser(userId);
+  await borrarVistas(vistas);
+  let pendientes = await getPendientesUser(userId);
+  await borrarPendientes(pendientes);
+  await getBorrarUser(userId);
+  //borrarUserAuth(userId);
 }
 
 //******************* */

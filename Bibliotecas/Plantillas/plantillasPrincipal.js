@@ -107,9 +107,9 @@ export const pintarBuscar = () => {
             </div>
             <div class="col-sm-6">
                 <div class="input-group">
-                    <input type="text" id='barrab'placeholder="Nombre Película" />
-                    <input type="text" id='anyob' placeholder="Año (opcional)"/>
-                    <input class="btn btn-outline-primary" type="button" value="buscar" id='buscar' />
+                    <input type="text" id='barrab'placeholder="Nombre película" />
+                    <input type="text" id='anyob' placeholder="Año (opcional)" pattern='^(19|20)\d{2}$' title='El año debe estar entre 1900 y 2099' />
+                    <input class="btn btn-outline-primary" type="button" value="Buscar" id='buscar' />
                 </div>
             </div>
         </div>
