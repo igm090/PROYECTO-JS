@@ -139,6 +139,7 @@ export const cerrarSesion = () => {
       .signOut()
       .then(() => {
         d.getElementsByTagName("li")[0].firstChild.innerHTML = "";
+        uidSesion = null;
         console.log("Sesión cerrada.");
       })
       .catch((error) => {

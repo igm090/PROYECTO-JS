@@ -77,15 +77,20 @@ export const cargarBuscar = (id) => {
     masoquista.innerHTML += principal.pintarBuscar();
     d.getElementById("buscar").addEventListener("click", async () => {
         let datos = getDatosBusqueda();
-        let films = await api.getFilmsBusqueda(datos[0], datos[1]);
-        pintarBusqueda(films);
+        if (datos !== false) {
+            let films = await api.getFilmsBusqueda(datos[0], datos[1]);
+            pintarBusqueda(films);
+        } else console.log("Error en el formulario.");
     })
 }
 
 const getDatosBusqueda = () => {
     let nom = d.getElementById("barrab").value;
     let anyo = d.getElementById("anyob").value;
-    return new Array(nom, anyo);
+    if (nom.trim() != '') {
+        if (anyo != '' && !Number.isNaN(anyo) && anyo < 2022 && anyo > 1900) return new Array (nom, anyo);
+        else return new Array (nom, '');
+    } else return false;
 }
 
 const pintarBusqueda = async (films) => {
@@ -101,7 +106,7 @@ const pintarBusqueda = async (films) => {
 //********************************************** */
 //Menú perfil película
 const setupMenu = () => {
-    if (firebase.getSesionId() == '') d.getElementById('btnAnyadir').parentElement.classList.add('hidden');
+    if (firebase.getSesionId() == '' || firebase.getSesionId() == null) d.getElementById('btnAnyadir').parentElement.classList.add('hidden');
     else d.getElementById('btnAnyadir').parentElement.classList.remove('hidden');
 
     d.getElementById('btnAnyadir').addEventListener('click', async function () {
