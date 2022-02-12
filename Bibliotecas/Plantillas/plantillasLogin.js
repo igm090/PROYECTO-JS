@@ -1,3 +1,5 @@
+/*Estas son las dos plantillas que pertenecen a acceso.js simplemente. La primera pinta el formulario de inicio
+de sesión y la segunda plantilla es para pintar el formulario de registro.*/
 "use strict";
 
 export const pintarLogin = () => {
@@ -29,15 +31,6 @@ export const pintarLogin = () => {
 </div>
 </div>`;
 };
-
-/* recuérdame aún no se implementa
-* <div class="col-12">
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="rememberMe">
-        <label class="form-check-label" for="rememberMe"> Recuérdame</label>
-    </div>
-</div>
-*/
 
 export const pintarRegistro = () => {
     return `
@@ -75,8 +68,8 @@ export const pintarRegistro = () => {
 </div>`;
 };
 
-/* Confirmar la contraseña para después
-    <div class="mb-4 col-md-12">
+/* SIN IMPLEMENTAR. Es un trozo de código que queríamos añadir después para confirmar la contraseña.
+    <div class="mb-4 col-md-4">
         <label>Repite la contraseña<span class="text-danger">*</span></label>
         <input type="password" name="confirmpassword" class="form-control" placeholder="Confirma la contraseña">
     </div> */

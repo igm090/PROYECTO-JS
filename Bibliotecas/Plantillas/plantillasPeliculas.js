@@ -1,6 +1,7 @@
-/**
- * Método que pinta las listas en el menú principal.
- */
+/*Estas son las dos plantillas que pertenecen a principal.js en su mayoría.La primera pinta el formulario de inicio
+de sesión y la segunda plantilla es para pintar el formulario de registro.*/
+
+//Función que pinta una película con varios detalles generales. Esta es llamada para pintar 9 películas en el menú de inicio.
     export const pintarPeliculasLanding = (pelicula) => {
 return `   
     <div class="movie-card" id="${pelicula.imdbID}"> 
@@ -45,6 +46,7 @@ return `
 	</div><!--movie-card-->`
     };
 
+//Función que pinta una película con datos algo más básicos, que se llama con la función de buscar de la cabecera.
     export const pintarPeliculasBusqueda = (pelicula) => {
         return `   
             <div class="movie-card" id="${pelicula.imdbID}"> 
@@ -66,6 +68,8 @@ return `
                 </div>`
             };
 
+/*Función que pinta una película con todo lujo de detalles, función que se puede llamar desde cualquier película 
+haciendo clic en su título.*/
             export const pintarPerfilPelicula = (pelicula) => {
                 return `
                 <div class="container emp-profile">

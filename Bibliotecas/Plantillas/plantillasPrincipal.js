@@ -1,5 +1,6 @@
-"use strict";
-
+/*Aquí tenemos tres plantillas que son para manejar una parte vistosa de la aplicación, que pertenece más bien a
+principal.js. Desde aquí pintamos el body en el inicio, el footer cuando vemos conveniente y también la plantilla de
+búsqueda de películas.*/
 export const pintarBody = () => {
     return `
 <div id="home">

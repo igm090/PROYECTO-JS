@@ -1,5 +1,8 @@
-"use strict";
+/*Estas son las plantillas que pertenecen en su totalidad a perfil.js. Pintan tanto perfil como películas, pero de
+cualquier manera son las películas pertenecientes a las listas del perfil del usuario, por eso las hemos dejado aquí,
+nos parecía más claro así.*/
 
+//Pinta el perfil del usuario, mostrando también los botones para acceder a su lista o borrar su cuenta.
 export const pintarPerfil = (usuario) => {
     return `    
 <div class="row gutters-sm">
@@ -59,14 +62,11 @@ export const pintarPerfil = (usuario) => {
         </ul>
     </div>
 </div>
-
 `};
 
-
-        /*      SUBIR          <div class="file btn btn-lg btn-primary">
-                    Change Photo
-                <input type="file" name="file"/> */
-
+/*Pinta la lista de películas vistas. Es básicamente idéntica a la de pendientes. No hemos quitado una y adaptado el
+código por falta de tiempo y porque en principio si tenían más diferencias entre ellas con botones y alguna función,
+pero no se ha podido implementar todo.*/
 export const pintarListaVistas = (pelicula) => {
     return `   
     <div class="movie-card" id="${pelicula.imdbID}"> 
@@ -86,12 +86,7 @@ export const pintarListaVistas = (pelicula) => {
             </div>
         <div class="movie-info">
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="info-section">
-                        <input type="button" value="Pendiente"/>
-                    </div>
-                </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="info-section">
                         <input type="button" value="Eliminar"/>
                     </div>
@@ -102,6 +97,7 @@ export const pintarListaVistas = (pelicula) => {
 </div>`
 };
 
+//Plantilla igual a la superior de lista de películas vistas.
 export const pintarListaPendientes = (pelicula) => {
     return `   
         <div class="movie-card" id="${pelicula.imdbID}"> 
@@ -121,12 +117,7 @@ export const pintarListaPendientes = (pelicula) => {
                     </div>
                 <div class="movie-info">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="info-section">
-                                <input type="button" value="Vista"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="info-section">
                                 <input type="button" value="Eliminar" class='btnEliminar' />
                             </div>
@@ -137,7 +128,17 @@ export const pintarListaPendientes = (pelicula) => {
         </div>`
 };
 
+
+/*      SIN IMPLEMENTAR. Queríamos que los usuarios pudieran subir su propia foto de perfil en su perfil.
+Como no nos ha dado tiempo hemos dejado una por defecto algo tenebrosa.
+    <div class="file btn btn-lg btn-primary">
+        Change Photo
+    <input type="file" name="file"/> */
+    
+
 //año, alfabetico, media paprika. search genero
+/*SIN IMPLEMENTAR. Tanto aquí como en perfil.js se pueden ver varios métodos comentados porque estábamos trabajando
+en que el usuario pudiera filtrar sus listas por varias opciones, pero no ha sido posible. Lo dejamos como futura mejora.
 export const pintarMenuListas = () => {
     return `
     <div class="padding">
@@ -170,4 +171,5 @@ export const pintarMenuListas = () => {
         </div>
     </div>
     `;
-}
+}*/
+
