@@ -54,10 +54,6 @@ export const getMediaPaprika = (film) => {
     return Math.round((parseInt(film.Ratings[0].Value.substring(0, film.Ratings[0].Value.indexOf('/')).split(".").join("")) + parseInt(film.Ratings[1].Value.substring(0, film.Ratings[1].Value.indexOf('%'))) + parseInt(film.Ratings[2].Value.substring(0, film.Ratings[2].Value.indexOf('/')).split(".").join(""))) / 3) / 10;
 }
 
-//funciones sort() (para listas del usuario)
-//documentación jlinq - http://hugoware.net:4000/projects/jlinq/demo
-
-
 export const getFullListaJSON = async (lista) => {
     let all = [];
     for (const e of lista) {
@@ -65,6 +61,15 @@ export const getFullListaJSON = async (lista) => {
         all.push(film);   
     }
     return all;
+}
+
+export const getIdsBusqueda = (films) => {
+    let ids = [];
+    for (let i = 0; i < films.Search.length; i++) {
+        ids[i] = films.Search[i].imdbID;
+        console.log(films.Search[i].imdbID);
+    }
+    return ids;
 }
 
 //FILTROS (GRITOS DE FONDO)

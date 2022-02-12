@@ -64,8 +64,6 @@ const crearUserAuth = (mail, contra) => {
     //Llamamos para crear sus litas.
     crearVistas(uid);
     crearPendientes(uid);
-    console.log("llamamos a la lista");
-    getVistasUser(uid);
 }
 
 export const crearVistas = async (idU) => {
@@ -92,6 +90,7 @@ export const iniciarSesion = (mail, contra) => {
       .then((credenciales) => {
         let uid = credenciales.user.uid;
         recogerUserBD(uid);
+        setupPrincipal();
       })
       .catch((error) => {
         console.log(error);
@@ -225,13 +224,8 @@ export const getUserByIdAuth = async (idU) => {
   return d;
 }
 
-//Recoge y prepara todos los datos del usuario (listas incuidas) 
-//export const getEverything = async () => {
-//  console.log("Datos del usuario cargados con éxito.");
-//}
 
 //borrar usuario y sus listas
-
 export const borrarUser = async () => {
   const resol = await getDocs(query(usersCol, where('idAuth','==', idU)));
   resol.forEach((doc) => {

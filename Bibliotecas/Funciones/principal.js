@@ -88,12 +88,14 @@ const getDatosBusqueda = () => {
     return new Array(nom, anyo);
 }
 
-const pintarBusqueda = (films) => {
+const pintarBusqueda = async (films) => {
     let contenedorPelisBusqueda = d.getElementById("contPeliculasBuscar");
     for (let i = 0; i < films.Search.length; i++) {
         contenedorPelisBusqueda.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
     }
-    eventCargarPerfilPelicula();
+    let ids = api.getIdsBusqueda(films);
+    let pelis = await api.getFullListaJSON(ids);
+    eventCargarPerfilPelicula(pelis);
 }
 
 //********************************************** */
