@@ -55,9 +55,7 @@ const crearUserAuth = (mail, contra) => {
         nomDisplay: nombre,
         nomMail: datos.user.email,
         idAuth: uid,
-        favoritos: [],
-        idPendientes: '',
-        idVistas: ''
+        favoritos: []
     });
     document.getElementById("formRegistro").reset();
     crearPendientes(datos.user.uid);
@@ -119,7 +117,6 @@ const recogerUserBD = async (uid) => {
 const manejarSesion = (nomDisplay, uid) => {
     d.getElementsByTagName("li")[0].firstChild.innerHTML = "Hola, " + nomDisplay;
     idSesion.id = uid;
-    setupPrincipal();
 };
 
 //Comprobamos el estado de la sesión en cuanto cambia.
@@ -128,7 +125,9 @@ onAuthStateChanged(autentificacion, (usuario) => {
       aux.botonesConSesion();
       console.log("Usuario conectado:" + usuario.uid);
     } else {
-      cerrarSesion();
+      console.log("auth");
+      //cerrarSesion();
+      setupPrincipal("auth");
       aux.botonesSinSesion();
       console.log("No se ha iniciado sesión");
     }
@@ -141,7 +140,6 @@ export const cerrarSesion = () => {
       .then(() => {
         d.getElementsByTagName("li")[0].firstChild.innerHTML = "";
         console.log("Sesión cerrada.");
-        setupPrincipal();
       })
       .catch((error) => {
         console.log(error);
