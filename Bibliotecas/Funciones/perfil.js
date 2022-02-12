@@ -35,8 +35,8 @@ const cargarListaPendientes = async () => {
     let docP = await firebase.getPendientesUser(idUser);
     let listaP = await getFullListaJSON(docP.data().films);
 
-    masoquista.innerHTML += plantillasPerfil.pintarMenuListas();
-    setupMenuListas(listaP);
+    //masoquista.innerHTML += plantillasPerfil.pintarMenuListas();
+    //setupMenuListas(listaP);
 
     coleccion = 'p';
     buclePintarListas(listaP);
@@ -50,8 +50,8 @@ const cargarListaVistas = async () => {
     let docP = await firebase.getVistasUser(idUser);
     let listaP = await getFullListaJSON(docP.data().films);
 
-    masoquista.innerHTML += plantillasPerfil.pintarMenuListas();
-    setupMenuListas(listaP);
+    //masoquista.innerHTML += plantillasPerfil.pintarMenuListas();
+    //setupMenuListas(listaP);
 
     coleccion = 'v';
     buclePintarListas(listaP);
@@ -69,9 +69,10 @@ export const buclePintarListas = (listaP, lista) => {
         masoquista.innerHTML += plantillasPerfil.pintarListaPendientes(listaP[i]);
         principal.eventCargarPerfilPelicula(listaP[i]);
     }
-    botonesListas();
+    botonesListas(lista);
 }
 
+/* FILTROS - SIN IMPLEMENTAR
 const eventosMenu = () => {
 d.getElementById('btnOrdenar').addEventListener('click', () => {
     let select = d.getElementById('selectOrdenar');
@@ -81,20 +82,18 @@ d.getElementById('btnOrdenar').addEventListener('click', () => {
 
 d.getElementById('btnGenBusqueda').addEventListener('click', () => {
     let elem = d.getElementById('genBusqueda').value;
+
     console.log(elem);
 });
 }
-
-export const botonesListas = () => {
+*/
+export const botonesListas = (lista) => {
     let botones = d.getElementsByClassName('btnEliminar');
     for (let i = 0; i < botones.length; i++) {
-        botones[i].addEventListener('click', async () => {
+        botones[i].addEventListener('click', async (lista) => {
             let id = botones[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.id; //lmfao
-            let cole;
-            if (coleccion == 'v') cole = firebase.getVistasCol();
-            else cole = firebase.getPendientesCol();
-
-            api.up
+            await firebase.borrarPelicula(id, coleccion);
+            cargarPerfil();
         });
     }
 }
