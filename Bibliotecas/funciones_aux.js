@@ -63,6 +63,13 @@ export const getNombreUser = () => {
     return nombre;
 };
 
+export const getFecha = () => {
+    let fecha = new Date();
+    return (
+      fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear()
+    );
+  };
+
 
 //Funciones de ocultar o mostrar botones con la sesión.
 export const botonesConSesion = () => {

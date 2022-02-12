@@ -49,7 +49,7 @@ export const pintarPerfil = (usuario) => {
 
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
             <h4 class="mb-0">Fecha Registro:</h4>
-            <span class="text-secondary">15/11/2022</span>
+            <span class="text-secondary">${usuario.data().regDate}</span>
             </li>
 
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">

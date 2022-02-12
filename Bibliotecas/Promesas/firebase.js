@@ -1,5 +1,5 @@
 import {app, autentificacion} from "./datosFirebase.js";
-import {getFirestore, collection, onSnapshot, updateDoc, getDocs, getDoc, doc, where, addDoc, arrayUnion, query} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import {getFirestore, collection, onSnapshot, updateDoc, getDocs, deleteDoc, getDoc, doc, where, addDoc, arrayUnion, query} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import * as aux from "../funciones_aux.js";
 import {setupPrincipal} from "../Funciones/principal.js"
@@ -49,11 +49,13 @@ const crearUserAuth = (mail, contra) => {
  */
  export const crearUserBd = async (datos) => {
     var nombre = aux.getNombreUser();
+    let fecha = aux.getFecha();
     let uid = datos.user.uid;
 
     await addDoc(usersCol, {
         nomDisplay: nombre,
         nomMail: datos.user.email,
+        regDate: fecha,
         idAuth: uid,
         favoritos: []
     });
@@ -62,6 +64,7 @@ const crearUserAuth = (mail, contra) => {
     //Llamamos para crear sus litas.
     crearVistas(uid);
     crearPendientes(uid);
+    setupPrincipal(uid);
 }
 
 export const crearVistas = async (idU) => {
@@ -224,22 +227,44 @@ export const getUserByIdAuth = async (idU) => {
 
 
 //borrar usuario y sus listas
-export const borrarUser = async () => {
-  const resol = await getDocs(query(usersCol, where('idAuth','==', idU)));
+export const getBorrarUser = async (idU) => {
+  const resol = await query(usersCol, where('idAuth','==', idU));
+  
+  const filtrado = await onSnapshot(resol, (col) => {
+    col.forEach((doc) => {
+      borrarUser(doc);
+  });
+});
+}
+
+export const borrarUser = async (doc) => {
+  /*console.log("voy a imprimir doc.id");
+  console.log(doc.id);
+  console.log("voy a imprimir doc");
+  console.log(doc);*/
+  let documento = await getDocumento(usersCol, doc.id);
+  console.log("voy a imprimir doc");
+  console.log(documento);
+  console.log("voy a imprimir doc.id");
+  console.log(documento.id);
+  try {
+    await deleteDoc(doc(usersCol, documento.id));
+    console.log("usuario borrado con éxito");
+  } catch {
+    console.log("Error borrando user");
+  }
+}
+
+export const borrarVistas = async (idU) => {
+  const resol = await query(vistasCol, where('idUser','==', idU));
   resol.forEach((doc) => {
-    doc.ref.delete();
+    doc.delete();
   });
 }
-export const borrarVistas = async () => {
-  const resol = await getDocs(query(vistasCol, where('idUser','==', idU)));
+export const borrarPendientes = async (idU) => {
+  const resol = await query(pendientesCol, where('idUser','==', idU));
   resol.forEach((doc) => {
-    doc.ref.delete();
-  });
-}
-export const borrarPendientes = async () => {
-  const resol = await getDocs(query(pendientesCol, where('idUser','==', idU)));
-  resol.forEach((doc) => {
-    doc.ref.delete();
+    doc.delete();
   });
 }
 
@@ -250,8 +275,9 @@ export const getSesionId = () => {
 //borrar lista
 export const borrarCuenta = () => {
   let userId = getSesionId();
-  let vistas = getVistasUser(userId);
-  let pendientes = getPendientesUser(userId);
+  getBorrarUser(userId);
+  //let vistas = getVistasUser(userId);
+  //let pendientes = getPendientesUser(userId)
 }
 
 //******************* */
