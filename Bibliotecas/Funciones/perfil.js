@@ -9,6 +9,7 @@ var d = document;
 var masoquista = d.getElementById("masoquista");
 var idUser;
 var listaOriginal;
+var coleccion;
 
 export const cargarPerfil = async () => {
     resetMasoquista();
@@ -37,6 +38,7 @@ const cargarListaPendientes = async () => {
     masoquista.innerHTML += plantillasPerfil.pintarMenuListas();
     setupMenuListas(listaP);
 
+    coleccion = 'p';
     buclePintarListas(listaP);
     eventosMenu(listaP);
 }
@@ -51,6 +53,7 @@ const cargarListaVistas = async () => {
     masoquista.innerHTML += plantillasPerfil.pintarMenuListas();
     setupMenuListas(listaP);
 
+    coleccion = 'v';
     buclePintarListas(listaP);
     eventosMenu(listaP);
 }
@@ -61,11 +64,12 @@ export const setupMenuListas = (lista) => {
     console.log(listaOriginal);
 }
 
-export const buclePintarListas = (listaP) => {
+export const buclePintarListas = (listaP, lista) => {
     for (let i = 0; i < listaP.length; i++){
         masoquista.innerHTML += plantillasPerfil.pintarListaPendientes(listaP[i]);
         principal.eventCargarPerfilPelicula(listaP[i]);
     }
+    botonesListas();
 }
 
 const eventosMenu = () => {
@@ -73,21 +77,24 @@ d.getElementById('btnOrdenar').addEventListener('click', () => {
     let select = d.getElementById('selectOrdenar');
     let valor = select.options[select.selectedIndex].value;
     console.log(valor);
-    console.log("aaaaa");
 });
 
 d.getElementById('btnGenBusqueda').addEventListener('click', () => {
     let elem = d.getElementById('genBusqueda').value;
     console.log(elem);
-    console.log("bbbbb");
 });
 }
-//Recoger listas del usuario
-const recogerPendientes = () => {
 
+export const botonesListas = () => {
+    let botones = d.getElementsByClassName('btnEliminar');
+    for (let i = 0; i < botones.length; i++) {
+        botones[i].addEventListener('click', async () => {
+            let id = botones[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.id; //lmfao
+            let cole;
+            if (coleccion == 'v') cole = firebase.getVistasCol();
+            else cole = firebase.getPendientesCol();
 
-}
-
-const recogerVistas = () => {
-
+            api.up
+        });
+    }
 }
