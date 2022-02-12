@@ -62,8 +62,6 @@ const crearUserAuth = (mail, contra) => {
     //Llamamos para crear sus litas.
     crearVistas(uid);
     crearPendientes(uid);
-    console.log("llamamos a la lista");
-    getVistasUser(uid);
 }
 
 export const crearVistas = async (idU) => {
@@ -90,6 +88,7 @@ export const iniciarSesion = (mail, contra) => {
       .then((credenciales) => {
         let uid = credenciales.user.uid;
         recogerUserBD(uid);
+        setupPrincipal();
       })
       .catch((error) => {
         console.log(error);
@@ -115,7 +114,6 @@ const recogerUserBD = async (uid) => {
 const manejarSesion = (nomDisplay, uid) => {
     d.getElementsByTagName("li")[0].firstChild.innerHTML = "Hola, " + nomDisplay;
     idSesion.id = uid;
-    setupPrincipal();
 };
 
 //Comprobamos el estado de la sesión en cuanto cambia.
@@ -124,7 +122,9 @@ onAuthStateChanged(autentificacion, (usuario) => {
       aux.botonesConSesion();
       console.log("Usuario conectado:" + usuario.uid);
     } else {
-      cerrarSesion();
+      console.log("auth");
+      //cerrarSesion();
+      setupPrincipal("auth");
       aux.botonesSinSesion();
       console.log("No se ha iniciado sesión");
     }
@@ -137,7 +137,6 @@ export const cerrarSesion = () => {
       .then(() => {
         d.getElementsByTagName("li")[0].firstChild.innerHTML = "";
         console.log("Sesión cerrada.");
-        setupPrincipal();
       })
       .catch((error) => {
         console.log(error);
@@ -223,13 +222,8 @@ export const getUserByIdAuth = async (idU) => {
   return d;
 }
 
-//Recoge y prepara todos los datos del usuario (listas incuidas) 
-//export const getEverything = async () => {
-//  console.log("Datos del usuario cargados con éxito.");
-//}
 
 //borrar usuario y sus listas
-
 export const borrarUser = async () => {
   const resol = await getDocs(query(usersCol, where('idAuth','==', idU)));
   resol.forEach((doc) => {

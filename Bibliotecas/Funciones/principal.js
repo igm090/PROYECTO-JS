@@ -21,7 +21,8 @@ export const cargarPrincipal = async (films) => {
     cargarPeliculasLanding(films);
 }
 
-export const setupPrincipal = async () => {
+export const setupPrincipal = async (string) => {
+    console.log(`Codeword -  ${string}`)
     if (bufferArray == '') bufferArray = await aux.textFileToArray();
     let shortlist = aux.generarShortlist(bufferArray);
     shortlist = await api.getFullListaJSON(shortlist);
@@ -42,7 +43,7 @@ export const cargarPeliculasLanding = (films) => {
     for (let i = 0; i < films.length; i++) {
         contenedorPelis.innerHTML += peliculas.pintarPeliculasLanding(films[i]);
     }
-    eventCargarPerfilPelicula();
+    eventCargarPerfilPelicula(films);
     //masoquista.innerHTML += principal.pintarFooter();
 }
 //*****//
@@ -62,23 +63,13 @@ const eventBtnLanding = () => {
 }
 
 //Evento Cargar perfil de una película
-const eventCargarPerfilPelicula = async () => {
+const eventCargarPerfilPelicula = async (films) => {
     var arrayPeliculas = d.getElementsByClassName("movie-title");
-    for (let i = 0; i < arrayPeliculas.length; i++) {
-        let idPelicula = arrayPeliculas[i].parentElement.parentElement.parentElement.parentElement.id;
-        let pelicula = await buscarPelicula(idPelicula);
+    for (let i = 0; i < films.length; i++) {
         arrayPeliculas[i].addEventListener("click", () =>{
-            cargarPerfilPelicula(pelicula);
+            cargarPerfilPelicula(films[i]);
         });
     }
-}
-
-/**
- * Recogemos el objeto película gracias a su ID.
- */
-const buscarPelicula = async (id) => {
-    let pelicula = await api.getFilmById(id);
-    return pelicula;
 }
 
 export const cargarBuscar = (id) => {
@@ -97,12 +88,14 @@ const getDatosBusqueda = () => {
     return new Array(nom, anyo);
 }
 
-const pintarBusqueda = (films) => {
+const pintarBusqueda = async (films) => {
     let contenedorPelisBusqueda = d.getElementById("contPeliculasBuscar");
     for (let i = 0; i < films.Search.length; i++) {
         contenedorPelisBusqueda.innerHTML += peliculas.pintarPeliculasBusqueda(films.Search[i]);
     }
-    eventCargarPerfilPelicula();
+    let ids = api.getIdsBusqueda(films);
+    let pelis = await api.getFullListaJSON(ids);
+    eventCargarPerfilPelicula(pelis);
 }
 
 //********************************************** */
