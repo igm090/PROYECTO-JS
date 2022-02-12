@@ -68,22 +68,22 @@ return `
 
             export const pintarPerfilPelicula = (pelicula) => {
                 return `
-            <div class="container emp-profile">
+                <div class="container emp-profile">
                 <form method="post">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="movie-header" style="background: url(${pelicula.Poster})  no-repeat center center">
                             </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="profile-head">
-                                <h5>
+                                <h3 id="titPerfP">
                                     ${pelicula.Title}
-                                </h5>
-                                <h6>
+                                </h3>
+                                <h4>
                                     ${pelicula.Director}
-                                </h6>
-                                <p class="proile-rating">PAPRIKA SPICE: <span>8/10</span></p>
+                                </h4>
+                                <p class="proile-rating">PAPRIKA SPICE: <span id="puntPerfP">8/10</span></p>
                             
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
@@ -97,9 +97,77 @@ return `
                                     </li>
                                 </ul>
                             </div>
+            
+                            <div class="tab-content profile-tab" id="myTabContent">
+                            
+                            <div class="tab-pane show active" id="sinopsis" role="tabpanel" aria-labelledby="sinopsis-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label>Sinopsis</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p id="plotPerfP">${pelicula.Plot}</p>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="tab-pane" id="general" role="tabpanel" aria-labelledby="general-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Fecha de estreno:</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>${pelicula.Released}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Taquilla</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>${pelicula.BoxOffice}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Restricción de edad:</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>${pelicula.Rated}</p>
+                                        </div>
+                                    </div>
                         </div>
-                        <div class="col-md-3" id='${pelicula.imdbID}' >
-                            Añadir a lista
+            
+                        <div class="tab-pane" id="actores" role="tabpanel" aria-labelledby="actores-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Directores:</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>${pelicula.Director}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Actores:</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>${pelicula.Actors}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Guionistas:</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>${pelicula.Writer}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="col-md-2" id='${pelicula.imdbID}'>
                             <select id='selectAnyadir'>
                                 <option value='none' selected>Selecciona una lista</option>
                                 <option value='vistas'>Vistas</option>
@@ -108,82 +176,18 @@ return `
                             <input id='btnAnyadir' type="button" class="profile-edit-btn" name="btnAnyadir" value="Añadir a lista"/>
                         </div>
                     </div>
+            
                     <div class="row">
-                        <div class="col-md-4">
-                                <p>País</p>
-                                <a href="">${pelicula.Country}</a><br/>
-                                <p>Premios</p>
-                                <a href="">${pelicula.Awards}</a><br/>
+                        <div class="col-md-6 offset-md-6 id="grupPerfP">
+                            <p>País</p>
+                            <a href="">${pelicula.Country}</a><br/>
+                            <p>Premios</p>
+                            <a href="">${pelicula.Awards}</a><br/>
                         </div>
-                        <div class="col-md-8">
-                            <div class="tab-content profile-tab" id="myTabContent">
-                            
-                                <div class="tab-pane show active" id="sinopsis" role="tabpanel" aria-labelledby="sinopsis-tab">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Sinopsis</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>${pelicula.Plot}</p>
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <div class="tab-pane" id="general" role="tabpanel" aria-labelledby="general-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Fecha de estreno:</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>${pelicula.Released}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Taquilla</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>${pelicula.BoxOffice}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Restricción de edad:</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>${pelicula.Rated}</p>
-                                            </div>
-                                        </div>
-                            </div>
-            
-                            <div class="tab-pane" id="actores" role="tabpanel" aria-labelledby="actores-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Directores:</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>${pelicula.Director}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Actores:</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>${pelicula.Actors}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Guionistas:</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>${pelicula.Writer}</p>
-                                            </div>
-                                        </div>
-                            </div>
-                        </div>
+                        <div class="col-md-6 offset-md-6"></div>
                     </div>  
+            
+            
                 </form>
             </div>
                 `};
