@@ -275,10 +275,28 @@ footer{
     color: #0062cc;
 }
 
+#titPerfP{
+    font-size: 2m;
+    color: #e51b23;
+} 
 
+.proile-rating{
+    color: #e67a7d
+}
 
+#puntPerfP {
+    font-size: 1.5em;
+    color: #e51b23;
+}
 
+#plotPerfP {
+    color: black;
+    font-style: italic;
+}
 
+#grupPerfP {
+    margin: 5px 0 4px 10px;
+}
 
 /*PELICULAS LANDING*/
 .movie-card {
