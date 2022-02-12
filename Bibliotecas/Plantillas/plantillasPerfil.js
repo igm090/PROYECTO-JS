@@ -11,57 +11,60 @@ export const pintarPerfil = (usuario) => {
             <div class="d-flex flex-column align-items-center text-center">
                 <img src="css/media/foto-defecto.jpg" alt="Tu foto de perfil" class="rounded-circle" width="150">
             </div>
-            <div class="mt-12">
                 <h4>${usuario.data().nomDisplay}</h4>
-            </div>
         </div>
     </div>
 </div>
 
 
-<div class="row gutters-sm">
-        <div class="col-sm-6 mb-6">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h3 class="mb-0">Lista Pendientes</h3>
-                    <input type="button" value="Lista Pendientes" id="listaPendientes">
-                </div>
+<div class="row">
+    <div class="col-sm-6 mb-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <input type="button" value="Lista Pendientes" id="listaPendientes">
             </div>
         </div>
-        <div class="col-sm-6 mb-6">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h3 class="mb-0">Lista Vistas</h3>
-                    <input type="button" value="Lista Vistas" id="listaVistas">
-                </div>
+    </div>
+    <div class="col-sm-6 mb-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <input type="button" value="Lista Vistas" id="listaVistas">
             </div>
-        </div>
         </div>
     </div>
 </div>
 
+        <div class="row datosPerf">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+                <label class="perfilMsj">Correo</label>
+            </div>
+            <div class="col-md-3">
+                <p class="perfilMsj">${usuario.data().nomMail}</p>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
 
-<div class="row gutters-sm">
-    <div class="card mt-3">
-        <ul class="list-group list-group-flush">
+        <div class="row datosPerf">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+                <label class="perfilMsj">Fecha Registro:</label>
+            </div>
+            <div class="col-md-3">
+                <p class="perfilMsj">$${usuario.data().regDate}</p>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
 
-            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-            <h4 class="mb-0">Correo:</h4>
-            <span class="text-secondary">${usuario.data().nomMail}</span>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-            <h4 class="mb-0">Fecha Registro:</h4>
-            <span class="text-secondary">${usuario.data().regDate}</span>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-            <h4 class="mb-0">Borrar cuenta:</h4>
-            <input type="button" value="Borrar Cuenta" id="borrarCuenta">
-            </li>
-        </ul>
-    </div>
-</div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="button" value="Borrar Cuenta" id="borrarCuenta">
+            </div>
+        </div>
 `};
 
 /*Pinta la lista de películas vistas. Es básicamente idéntica a la de pendientes. No hemos quitado una y adaptado el

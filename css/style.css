@@ -452,14 +452,59 @@ footer{
 }
 
 .card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1rem;
+    text-align: center;
+    padding: 30px;
+    border: black 1px solid;
+}
+
+.datosPerf{
+    background-color: rgb(226, 96, 96);
+}
+
+#borrarCuenta{
+    padding: 4px;
+    font-size: 16px;
+    background-color: rgb(207, 4, 4);
+    color: white;
+    margin-top: 10px;
+}
+
+#borrarCuenta:hover{
+    background-color: rgb(240, 129, 129);
+    color: black;
+}
+
+.perfilMsj{
+    font-size: 18px;
+    color: black;
+}
+
+.card-body input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 20px;
+    background-color: rgb(236, 250, 208);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px black;
+}
+
+.card-body input:hover{
+    background-color: rgb(196, 218, 154);
+}
+
+.card-body h4{
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .gutters-sm {
     margin-right: -8px;
     margin-left: -8px;
+}
+
+.gutters-sm input{
+    font-size: 20px;
+    padding: 4px;
 }
 
 .gutters-sm>.col, .gutters-sm>[class*=col-] {
@@ -478,4 +523,8 @@ footer{
 }
 .shadow-none {
     box-shadow: none!important;
+}
+
+.original{
+    cursor: default;
 }

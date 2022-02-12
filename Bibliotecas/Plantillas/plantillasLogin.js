@@ -6,7 +6,7 @@ export const pintarLogin = () => {
     return `
 <div class="container">
 <div class="row">
-    <div class="col-md-4 offset-md-4">
+    <div class="col-md-10 offset-md-4">
         <div class="login-form bg-light mt-4 p-4">
             <form action="" method="" class="row g-3" id="formLogin">
                 <h4>¡Bienvenido!</h4>
@@ -36,7 +36,8 @@ export const pintarRegistro = () => {
     return `
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+    <div class="padding>
+        <div class="col-md-12 offset-md-4">
             <div class="signup-form">
                 <form action="" class="mt-5 border p-4 bg-light shadow" id="formRegistro">
                     <h4 class="mb-5 text-secondary">Crea tu cuenta</h4>
@@ -63,6 +64,8 @@ export const pintarRegistro = () => {
                 </form>
                 <p class="text-center mt-3 text-secondary">Si ya tienes una cuenta, <a id="miniLogin" href="#">Inicia Sesión</a></p>
             </div>
+        
+        </div>
         </div>
     </div>
 </div>`;
