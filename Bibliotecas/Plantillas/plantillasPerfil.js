@@ -102,3 +102,33 @@ export const pintarListaPendientes = (pelicula) => {
                 </div>
         </div><!--movie-card-->`
 };
+
+//año, alfabetico, media paprika. search genero
+export const pintarMenuListas = () => {
+    return `
+        <div>
+            <form>
+            <div></div>
+                <input type='text' id='genBusqueda' placeholder='Filtrar por género' /> 
+                <input type='button' id='btnGenBusqueda' value='Filtrar' />
+
+                <select id='selectOrdenar'>
+                    <option value='none' selected>Ordenar lista</option>
+                    <optgroup label='Afabético' >
+                        <option value='A-asc'>Asc.</option>
+                        <option value='A-desc'>Desc.</option>
+                    </optgroup>
+                    <optgroup label='Fecha de estreno' >
+                        <option value='Y-asc'>Asc.</option>
+                        <option value='Y-desc'>Desc.</option>
+                    </optgroup>
+                    <optgroup label='Spicy level' >
+                        <option value='P-asc'>Asc.</option>
+                        <option value='P-desc'>Desc.</option>
+                    </optgroup> 
+                </select>
+                <input type='button' value='Ordenar' id='btnOrdenar' />
+            </form>
+        </div>
+    `;
+}

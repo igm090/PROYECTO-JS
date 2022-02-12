@@ -7,6 +7,7 @@ import { getFullListaJSON } from "../Promesas/omdbAPI.js"
 var d = document;
 var masoquista = d.getElementById("masoquista");
 var idUser;
+var listaOriginal;
 
 export const cargarPerfil = async () => {
     resetMasoquista();
@@ -16,8 +17,6 @@ export const cargarPerfil = async () => {
     masoquista.innerHTML = plantillasPerfil.pintarPerfil(usuario);
     eventosPerfil();
 }
-
-
 
 //Eventos botones del perfil.
 const eventosPerfil = () => {
@@ -29,27 +28,50 @@ const eventosPerfil = () => {
 //Funciones para pintar las listas.
 const cargarListaPendientes = async () => {
     resetMasoquista();
-    console.log("probando123");
+
     console.log(idUser);
     let docP = await firebase.getPendientesUser(idUser);
     let listaP = await getFullListaJSON(docP.data().films);
 
-    for (let i = 0; i < listaP.length; i++){
-        masoquista.innerHTML += plantillasPerfil.pintarListaPendientes(listaP[i]);
-    }
+    masoquista.innerHTML += plantillasPerfil.pintarMenuListas();
+    setupMenuListas(listaP);
+
+    buclePintarListas(listaP);
 }
 
 const cargarListaVistas = async () => {
     resetMasoquista();
 
-    let listaV = await firebase.getVistasUser(idUser);
-    masoquista.innerHTML += plantillasPerfil.pintarListaVistas(); 
+    console.log(idUser);
+    let docP = await firebase.getVistasUser(idUser);
+    let listaP = await getFullListaJSON(docP.data().films);
 
-    for (let i = 0; i < listaV.length; i++){
-        masoquista.innerHTML += plantillasPerfil.pintarListaPendientes(listaV[i]);
-    }
+    masoquista.innerHTML += plantillasPerfil.pintarMenuListas();
+    setupMenuListas(listaP);
+
+    buclePintarListas(listaP);
 }
 
+
+export const setupMenuListas = (lista) => {
+    listaOriginal = lista;
+    console.log(listaOriginal);
+    d.getElementById('btnOrdenar').addEventListener('click', () => {
+        let a = d.getElementById('selectOrdenar').options[d.getElementById('selectOrdenar').selectedIndex].value;
+        console.log(a);
+        console.log("aaaaa");
+    });
+
+    d.getElementById('btnGenBusqueda').addEventListener('click', () => {
+        let a = d.getElementById('genBusqueda').value;
+        console.log(a);
+        console.log("bbbbb");
+    });
+}
+
+export const buclePintarListas = (listaP) => {
+    for (let i = 0; i < listaP.length; i++) masoquista.innerHTML += plantillasPerfil.pintarListaPendientes(listaP[i]);
+}
 //Recoger listas del usuario
 const recogerPendientes = () => {
 
