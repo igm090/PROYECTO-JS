@@ -23,6 +23,7 @@ export const cargarPerfil = async () => {
 const eventosPerfil = () => {
     d.getElementById("listaPendientes").addEventListener("click", cargarListaPendientes);
     d.getElementById("listaVistas").addEventListener("click", cargarListaVistas);
+    d.getElementById("borrarCuenta").addEventListener("click", firebase.borrarCuenta);
 }
 
 //Funciones para pintar las listas.

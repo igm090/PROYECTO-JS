@@ -10,24 +10,36 @@ return `
 
 		<div class="movie-content">
 			<div class="movie-content-header">
-				<a href="#">
-					<h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
-				</a>
-				<div class="paprika-logo"></div>
-			</div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <a href="#">
+                            <h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
+                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="css/media/logow.PNG" alt="Sello Paprika">
+			        </div>
+                </div>
 			<div class="movie-info">
-				<div class="info-section">
-					<label>Duración</label>
-					<span>${pelicula.Runtime}</span>
-				</div>
-				<div class="info-section">
-					<label>Género</label>
-					<span>${pelicula.Genre}</span>
-				</div>
-				<div class="info-section">
-					<label>Paprika Spice</label>
-					<span>${pelicula.mediaPaprika}</span>
-				</div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="info-section">
+                            <label>Duración</label>
+                            <span>${pelicula.Runtime}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="info-section">
+                            <label>Género</label>
+                            <span>${pelicula.Genre}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="info-section">
+                            <label>Paprika Spice</label>
+                            <span>${pelicula.mediaPaprika}</span>
+                        </div>
+                    </div>
 			</div>
 		</div><!--movie-content-->
 	</div><!--movie-card-->`
@@ -42,12 +54,16 @@ return `
                 </div><!--movie-header-->
         
                 <div class="movie-content">
-                    <div class="movie-content-header">
-                        <a href="#">
-                            <h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
-                        </a>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="movie-content-header">
+                                <a href="#">
+                                    <h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-            </div><!--movie-card-->`
+                </div>`
             };
 
             export const pintarPerfilPelicula = (pelicula) => {

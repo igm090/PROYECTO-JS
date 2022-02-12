@@ -59,6 +59,21 @@ html, body, #masoquista{
 #home h1{
     text-shadow: 1px 2px 3px black;
 }
+.input-group{
+    margin-top: 10%;
+}
+
+.input-group input{
+    width: 250px;
+    padding: 5px;
+    margin-top: 10px;  
+}
+
+.input-group #buscar{
+    width: 250px;
+    margin-top: 10px;
+    justify-content: center;  
+}
 
 #home h2{
     text-shadow: 0.5px 2px 2px black;
@@ -271,11 +286,12 @@ footer{
 .movie-header {
   padding: 0;
   margin: 0;
-  height: 367px;
+  height: 400px;
   width: 100%;
   display: block;
   background-size: cover;
   position: relative;
+  box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.1);
 }
 
 .header-icon {
@@ -315,9 +331,10 @@ footer{
 }
 
 .movie-content {
-  max-height: 114px;
+  height: 180px;
   padding: 18px 18px 24px 18px;
   margin: 0;
+  overflow: auto;
 }
 
 .movie-content-header, .movie-info {
@@ -326,7 +343,7 @@ footer{
 }
 
 .movie-title {
-  font-size: 24px;
+  font-size: 18px;
   margin: 0;
   display: table-cell;
 }

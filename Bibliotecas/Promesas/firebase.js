@@ -55,13 +55,9 @@ const crearUserAuth = (mail, contra) => {
         nomDisplay: nombre,
         nomMail: datos.user.email,
         idAuth: uid,
-        favoritos: [],
-        idPendientes: '',
-        idVistas: ''
+        favoritos: []
     });
     document.getElementById("formRegistro").reset();
-    crearPendientes(datos.user.uid);
-    crearVistas(datos.user.uid);
     console.log("Usuario añadido a la BD con éxito.");
     //Llamamos para crear sus litas.
     crearVistas(uid);
