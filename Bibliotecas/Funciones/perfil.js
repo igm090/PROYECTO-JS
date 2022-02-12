@@ -64,8 +64,9 @@ export const setupMenuListas = (lista) => {
 export const buclePintarListas = (listaP) => {
     for (let i = 0; i < listaP.length; i++){
         masoquista.innerHTML += plantillasPerfil.pintarListaPendientes(listaP[i]);
-        principal.eventCargarPerfilPelicula(listaP[i]);
     }
+    principal.eventCargarPerfilPelicula(listaP);
+
 }
 
 const eventosMenu = () => {
@@ -81,13 +82,4 @@ d.getElementById('btnGenBusqueda').addEventListener('click', () => {
     console.log(elem);
     console.log("bbbbb");
 });
-}
-//Recoger listas del usuario
-const recogerPendientes = () => {
-
-
-}
-
-const recogerVistas = () => {
-
 }

@@ -69,20 +69,37 @@ export const pintarPerfil = (usuario) => {
 
 export const pintarListaVistas = (pelicula) => {
     return `   
-        <div class="movie-card" id="${pelicula.imdbID}"> 
+    <div class="movie-card" id="${pelicula.imdbID}"> 
     
-            <div class="movie-header" style="background: url(${pelicula.Poster})">
-                <img src="media/sello2.png" alt="Sello Paprika">
-            </div><!--movie-header-->
-    
-            <div class="movie-content">
-                <div class="movie-content-header">
+    <div class="movie-header" style="background: url(${pelicula.Poster}) no-repeat center center">
+        <img src="css/media/sello2.png" alt="Sello Paprika">
+    </div><!--movie-header-->
+
+    <div class="movie-content">
+        <div class="movie-content-header">
+            <div class="row">
+                <div class="col-sm-12">
                     <a href="#">
                         <h3 class="movie-title">${pelicula.Title} (${pelicula.Year})</h3>
                     </a>
-                    <input type="button" value="Eliminar"/>
                 </div>
-        </div><!--movie-card-->`
+            </div>
+        <div class="movie-info">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="info-section">
+                        <input type="button" value="Pendiente"/>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="info-section">
+                        <input type="button" value="Eliminar"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`
 };
 
 export const pintarListaPendientes = (pelicula) => {

@@ -21,8 +21,8 @@ export const cargarPrincipal = async (films) => {
     cargarPeliculasLanding(films);
 }
 
-export const setupPrincipal = async (string) => {
-    console.log(`Codeword -  ${string}`)
+export const setupPrincipal = async () => {
+
     if (bufferArray == '') bufferArray = await aux.textFileToArray();
     let shortlist = aux.generarShortlist(bufferArray);
     shortlist = await api.getFullListaJSON(shortlist);

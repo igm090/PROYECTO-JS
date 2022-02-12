@@ -48,7 +48,7 @@ const crearUserAuth = (mail, contra) => {
  * Crea documento usuario y lo sube a firebase.
  */
  export const crearUserBd = async (datos) => {
-    var nombre = aux.getNombreUser();
+    let nombre = aux.getNombreUser();
     let fecha = aux.getFecha();
     let uid = datos.user.uid;
 
@@ -59,12 +59,11 @@ const crearUserAuth = (mail, contra) => {
         idAuth: uid,
         favoritos: []
     });
-    document.getElementById("formRegistro").reset();
     console.log("Usuario añadido a la BD con éxito.");
     //Llamamos para crear sus litas.
     crearVistas(uid);
     crearPendientes(uid);
-    setupPrincipal(uid);
+    setupPrincipal();
 }
 
 export const crearVistas = async (idU) => {
@@ -127,7 +126,7 @@ onAuthStateChanged(autentificacion, (usuario) => {
     } else {
       console.log("auth");
       //cerrarSesion();
-      setupPrincipal("auth");
+      setupPrincipal();
       aux.botonesSinSesion();
       console.log("No se ha iniciado sesión");
     }
