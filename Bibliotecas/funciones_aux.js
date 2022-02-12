@@ -1,3 +1,6 @@
+/**
+ * Funciones necesarias para el funcionamiento del programa que no encajaban en ninguna otra librería
+ */
 import * as j from "./Jquery/jquery-3.6.0.js"
 "use strict";
 
@@ -10,7 +13,7 @@ var cerrarSesion = document.getElementById("cerrarSesion");
 
 
 /**
- * Vacía la página (menos header), para luego poder pintar dentro.
+ * Vacía la página (menos header).
  */
 export const resetMasoquista = () => {
     let masoquista = document.getElementById("masoquista");
@@ -56,13 +59,17 @@ const emailValido = (string) => {
     return res.test(string);
 }
 
-
-
+/**
+ * Devuelve el conenido del apartado de nombre del formulario de registro
+ */
 export const getNombreUser = () => {
     var nombre = document.getElementById("nomRegistro").value;
     return nombre;
 };
 
+/**
+ * Devuelve una string formateada como fecha
+ */
 export const getFecha = () => {
     let fecha = new Date();
     return (
@@ -87,24 +94,24 @@ export const botonesSinSesion = () => {
 };
 
 /**
- * Devuelve un array con ids para mostrar en la página aleatoriamente.
+ * Convierte el archivo top1500.txt en un array.
  */
 export const textFileToArray = async () => {
     var array = [];
      await $.get('/Dataset/top1500.txt', function(data){
           array = data.split('\n');
       });
-      console.log(array);
       return array;
   }
 
 /**
  * Genera un array con el top 500 más populares de IMDb 
- * (los 1500 índices del txt no se usan. Muchos de los resultados tienen uns popularidad muy baja. 
- * Esto hace que 1. Las películas que se muestran no sean reconocibles por el usuario y 
+ * (los 1500 índices del txt no se usan. Muchos de los resultados tienen una popularidad muy baja. 
+ * Esto hace que -
+ * 1. Las películas que se muestran no sean reconocibles
  * 2. no tengan nota, lo que genera un error en getMediaPaprika())
  * 
- * Cambiar longitud del for para más o menos películas
+ * Cambiar longitud del for para mostrar más o menos películas en la página principal
  */
 export const generarShortlist = (buffer) => {
     let shortlist = [];

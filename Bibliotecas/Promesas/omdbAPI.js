@@ -1,15 +1,16 @@
 /**
- *  ejemplo json - guardianes de la galaxia 2 http://www.omdbapi.com/?i=tt3896198&apikey=1d78ab91
+ * Biblioteca de operaciones a la API OMDb.
  * 
- *  documentación http://www.omdbapi.com/
- *  url posters http://img.omdbapi.com/?apikey=1d78ab91&
- *  url data requests http://www.omdbapi.com/?apikey=1d78ab91&
+ *  Ejemplo JSON - http://www.omdbapi.com/?i=tt3896198&apikey=1d78ab91
+ *  Documentación - http://www.omdbapi.com/
  */
 
 const apiKey = "&apikey=32fc8355"; //añadir al final de cada url
 const url = "http://www.omdbapi.com/?";
 
-//getFilm (todo)
+/**
+ * Devuelve el objecto JSON completo
+ */
 export const getFilmById = async (id) => {
     let dir = `${url}i=${id}${apiKey}`;
     let film = await fetch(dir);
@@ -20,8 +21,10 @@ export const getFilmById = async (id) => {
     return filmJSON;
 }
 
-/**Buscar películas por título y año
- * Devuelve un array*/
+/**
+ * Sistema de búsqueda de OMDb. Busca por título (obligario) y año (opcional)
+ * Devuelve un array de resultados limitados, no el objeto JSON completo.
+ */
 export const getFilmsBusqueda = async (titulo, anyo) => {
     let dir = `${url}s=${titulo}`;
     if (anyo.trim() != '') dir += `y=${anyo.trim()}`;
@@ -32,28 +35,23 @@ export const getFilmsBusqueda = async (titulo, anyo) => {
     return a;
 }
 
-//getPoster (solo poster a lo mejor name y año)
-export const getMicroPreview = async (id) => {
-    let film = await getFilmById(id);
-    return new Array [film.imdbID, film.Poster, film.Title, film.Year];
-}
-
-//getPreview (poster, nombre, año, genero, media)
-export const getPreview = async (id) => {
-    let film = await getFilmById(id);
-    return new Array [film.imdbID, film.Poster, film.Title, film.Year, film.Genre, mediaPaprika];
-}
-
-//getIdFilm
+/**
+ * Devuelve el atributo imdbID (string) de una película (JSON)
+ */
 export const getIdFilm = (film) => {
     return film.imdbID;
 }
 
-/** Devuelve la media de las puntuaciones de la película*/
+/**
+ * Devuelve la media de los 3 ratings de un objeto JSON de película
+ */
 export const getMediaPaprika = (film) => {
     return Math.round((parseInt(film.Ratings[0].Value.substring(0, film.Ratings[0].Value.indexOf('/')).split(".").join("")) + parseInt(film.Ratings[1].Value.substring(0, film.Ratings[1].Value.indexOf('%'))) + parseInt(film.Ratings[2].Value.substring(0, film.Ratings[2].Value.indexOf('/')).split(".").join(""))) / 3) / 10;
 }
 
+/**
+ * Devuelve un array de objetos JSON a partir de un array de strings (atributo imdbID)
+ */
 export const getFullListaJSON = async (lista) => {
     let all = [];
     for (const e of lista) {
@@ -63,16 +61,18 @@ export const getFullListaJSON = async (lista) => {
     return all;
 }
 
+/**
+ * Devuelve un array de strings (imdbID) a partir de un array de JSON
+ */
 export const getIdsBusqueda = (films) => {
     let ids = [];
     for (let i = 0; i < films.Search.length; i++) {
         ids[i] = films.Search[i].imdbID;
-        console.log(films.Search[i].imdbID);
     }
     return ids;
 }
 
-//FILTROS (GRITOS DE FONDO) - SIM IMPLEMENTAR
+//FILTROS - SIM IMPLEMENTAR
 //*********************************************************************************/
 //*********************************************************************************/
 
