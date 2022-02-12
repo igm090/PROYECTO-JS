@@ -72,7 +72,7 @@ export const getIdsBusqueda = (films) => {
     return ids;
 }
 
-//FILTROS (GRITOS DE FONDO)
+//FILTROS (GRITOS DE FONDO) - SIM IMPLEMENTAR
 //*********************************************************************************/
 //*********************************************************************************/
 

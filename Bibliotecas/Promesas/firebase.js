@@ -1,5 +1,5 @@
 import {app, autentificacion} from "./datosFirebase.js";
-import {getFirestore, collection, onSnapshot, updateDoc, getDocs, deleteDoc, getDoc, doc, where, addDoc, arrayUnion, query} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import {getFirestore, collection, onSnapshot, updateDoc, getDocs, deleteDoc, getDoc, doc, where, addDoc, arrayUnion, query, arrayRemove, } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, deleteUser, } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import * as aux from "../funciones_aux.js";
 import {setupPrincipal} from "../Funciones/principal.js"
@@ -14,16 +14,6 @@ var idSesion = d.getElementsByTagName("li")[0];
 var uidSesion;
 //var nombreSesion = d.getElementsByTagName("li")[0].firstChild;
 
-
-export const getUsersCol = () => {
-  return usersCol;
-}
-export const getVistasCol = () => {
-  return vistasCol;
-}
-export const getPendientesCol = () => {
-  return pendientesCol;
-}
 /**
  * Comprueba el form, si está bien crea el user.
  */
@@ -193,13 +183,26 @@ export const updateDocArray = async (array, elem) => {
 }
 
 export const deleteFromDocArray = async (array, elem) => {
-    try {
-      await updateDoc(array, {films: arrayRemove(elem),});
-      console.log(`Elemento eliminado de la lista ${array.id}`);
-    } catch (error) {console.log(error);}
+  await updateDoc(array, {films: arrayRemove(elem)});
+  console.log(`Elemento eliminado de lista ${array.id}`);
 }
 
+export const borrarPelicula = async (idFilm, charCol) => {
+    let col = (charCol == 'v') ? vistasCol : pendientesCol;
+    let lista = await getListaQuery(col, uidSesion);
+    let doc = await getDocumento(col, lista.id);
+    await deleteFromDocArray(doc, idFilm);
+    return true;
+}
 
+export const getListaQuery = async (col, idU) => {
+  const resol = await getDocs(query(col, where("idUser", "==", idU)));
+  let d;
+  resol.forEach((doc) => {
+    d = doc;
+  })
+  return d;
+}
 
 //buscar listas del usuario
 export const getVistasUser = async (idU) => {
